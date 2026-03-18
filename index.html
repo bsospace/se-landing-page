@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Software Engineering - BUU Informatics (Red Edition)</title>
+  <link rel="icon" type="image/svg+xml" href="./logo-se.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Montserrat:wght@700;800&display=swap"
@@ -44,6 +45,19 @@
       font-size: 0.8rem;
       font-weight: 600;
     }
+
+    .hero-readable {
+      text-shadow: 0 2px 14px rgba(2, 6, 23, 0.35);
+    }
+
+    .timeline-description {
+      text-indent: 1.5rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      line-clamp: 7;
+      -webkit-line-clamp: 7;
+      overflow: hidden;
+    }
   </style>
 </head>
 
@@ -51,7 +65,7 @@
 
   <!-- Navbar -->
   <nav class="sticky top-0 z-50 glass">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="flex h-20 items-center justify-between">
         <!-- Logo Section -->
         <div class="flex-1 flex items-center">
@@ -68,11 +82,32 @@
 
         <!-- Centered Navigation -->
         <div class="hidden md:flex space-x-8 font-bold text-sm uppercase tracking-wide justify-center">
-          <a href="#about" class="hover:text-red-600 transition">เกี่ยวกับสาขา</a>
+          <a href="#facebook-posts" class="hover:text-red-600 transition">ข่าวสาร</a>
           <a href="#admission" class="hover:text-red-600 transition">การรับสมัคร</a>
+          <a href="#timeline" class="hover:text-red-600 transition">Timeline</a>
+          <a href="#future-work" class="hover:text-red-600 transition">งานที่ทำได้ในอนาคต</a>
+          <a href="#faq" class="hover:text-red-600 transition">FAQ</a>
           <a href="#portal" class="hover:text-red-600 transition text-red-600">ระบบสารสนเทศ</a>
         </div>
 
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" type="button" class="md:hidden text-slate-700 hover:text-red-600 transition p-2"
+          aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 px-2 sm:px-6 lg:px-8 pt-2">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-lg p-4 flex flex-col gap-2 font-bold text-sm uppercase tracking-wide">
+          <a href="#facebook-posts" class="hover:text-red-600 transition py-2">ข่าวสาร</a>
+          <a href="#admission" class="hover:text-red-600 transition py-2">การรับสมัคร</a>
+          <a href="#timeline" class="hover:text-red-600 transition py-2">Timeline</a>
+          <a href="#future-work" class="hover:text-red-600 transition py-2">งานที่ทำได้ในอนาคต</a>
+          <a href="#faq" class="hover:text-red-600 transition py-2">FAQ</a>
+          <a href="#portal" class="hover:text-red-600 transition text-red-600 py-2">ระบบสารสนเทศ</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -93,30 +128,46 @@
           class="inline-block bg-red-500/20 text-red-300 px-4 py-1 rounded-full text-sm font-bold mb-6 border border-red-500/30">
           <i class="fa-solid fa-graduation-cap mr-2"></i> บัณฑิตพันธุ์ใหม่เพื่ออุตสาหกรรมดิจิทัล
         </div>
-        <h1 class="text-5xl md:text-7xl font-montserrat font-extrabold mt-2 leading-[1.1]">
+        <h1 class="hero-readable text-5xl md:text-7xl font-montserrat font-extrabold mt-2 leading-[1.1]">
           Build the <span class="text-red-500">Future</span> <br> with Software
         </h1>
-        <p class="text-slate-300 text-lg mt-8 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+        <p class="hero-readable text-slate-200 text-xl md:text-2xl mt-8 max-w-2xl leading-relaxed mx-auto lg:mx-0">
           หลักสูตรที่เน้นทักษะการสร้างซอฟต์แวร์ที่ใช้งานได้จริงในอุตสาหกรรม
           มุ่งเน้นกระบวนการพัฒนาที่มีประสิทธิภาพ และการฝึกประสบการณ์วิชาชีพในเขตเศรษฐกิจพิเศษ EEC
         </p>
         <div
           class="mt-12 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center lg:justify-start">
+          <a href="#admission"
+            class="bg-white text-red-700 hover:bg-red-50 px-11 py-4 rounded-xl font-extrabold transition shadow-xl shadow-red-900/40 text-lg">
+            สมัครเข้าศึกษา
+          </a>
           <a href="#portal"
             class="bg-red-600 hover:bg-red-500 px-10 py-4 rounded-xl font-bold transition shadow-xl shadow-red-900/40 text-lg">
             เข้าใช้งานระบบ Portal
-          </a>
-          <a href="#curriculum"
-            class="bg-white/10 backdrop-blur hover:bg-white/20 px-10 py-4 rounded-xl font-bold transition border border-white/20 text-lg">
-            ดูรายละเอียดหลักสูตร
           </a>
         </div>
       </div>
       <div class="lg:w-2/5 flex justify-center relative">
         <div class="absolute -inset-10 bg-red-600/30 blur-[100px] rounded-full"></div>
-        <div class="relative bg-slate-900 p-2 rounded-3xl shadow-2xl border border-white/10">
-          <img src="code.png"
-            alt="Coding on Screen" class="rounded-2xl opacity-90">
+        <div class="relative bg-slate-900 p-2 rounded-3xl shadow-2xl border border-white/10 w-full max-w-[720px]">
+          <div class="relative overflow-hidden rounded-2xl group">
+            <img id="hero-carousel-image" src="images/code.png"
+              alt="Hero activity" class="w-full h-[260px] sm:h-[320px] md:h-[380px] object-cover opacity-90 transition duration-300">
+
+            <button id="hero-carousel-prev" type="button"
+              class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 text-white hover:bg-black/70 transition opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
+              aria-label="Previous hero image">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <button id="hero-carousel-next" type="button"
+              class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 text-white hover:bg-black/70 transition opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
+              aria-label="Next hero image">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <div id="hero-carousel-dots" class="absolute bottom-3 inset-x-0 flex items-center justify-center gap-2"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -125,65 +176,38 @@
   <!-- Unique Selling Points -->
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="flex flex-col items-center text-center">
-          <div
-            class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl shadow-inner">
-            <i class="fa-solid fa-users-viewfinder"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Project-Based Learning</h3>
-          <p class="text-slate-500">เรียนผ่านการลงมือทำโครงงานจริงในทุกภาคการศึกษา
-            พัฒนาแอปพลิเคชันที่ใช้งานได้จริงอย่างเข้มข้นตั้งแต่ชั้นปีที่ 2</p>
-        </div>
-        <div class="flex flex-col items-center text-center">
-          <div
-            class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl shadow-inner">
-            <i class="fa-solid fa-handshake-angle"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Industry Partnership</h3>
-          <p class="text-slate-500">ความร่วมมือกับบริษัทชั้นนำใน EEC เพื่อให้นิสิตได้ฝึกงานแบบ CWIE
-            และปฏิบัติงานจริงในสถานประกอบการนานกว่า 4 เดือน</p>
-        </div>
-        <div class="flex flex-col items-center text-center">
-          <div
-            class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl shadow-inner">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Open Source Ethics</h3>
-          <p class="text-slate-500">ปลูกฝังจรรยาบรรณวิชาชีพและการแบ่งปันความรู้ผ่านวิถีโอเพนซอร์สที่เป็นสากล</p>
-        </div>
+      <div id="usp-grid" class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- USP cards will be injected here via JavaScript -->
       </div>
     </div>
   </section>
 
   <!-- Admission Section -->
-  <section id="admission" class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4">
+  <section id="admission" class="scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 py-20 bg-slate-50">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-slate-900">Admission <span class="text-red-600">TCAS</span></h2>
         <p class="text-slate-600 mt-4">โอกาสในการเข้าศึกษาต่อในหลักสูตรวิศวกรรมซอฟต์แวร์</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div class="bg-white p-6 rounded-2xl border-t-4 border-red-600 shadow-sm">
-          <span class="text-red-600 font-bold text-sm">ROUND 1</span>
-          <h4 class="font-bold text-lg mt-1">Portfolio</h4>
-          <p class="text-slate-500 text-xs mt-2">เน้นผลงานด้าน IT, การแข่งขัน หรือเกรดเฉลี่ยที่โดดเด่น</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl border-t-4 border-slate-300 shadow-sm">
-          <span class="text-slate-400 font-bold text-sm">ROUND 2</span>
-          <h4 class="font-bold text-lg mt-1">Quota</h4>
-          <p class="text-slate-500 text-xs mt-2">โควตาพื้นที่ภาคตะวันออกและโรงเรียนเครือข่าย</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl border-t-4 border-slate-300 shadow-sm">
-          <span class="text-slate-400 font-bold text-sm">ROUND 3</span>
-          <h4 class="font-bold text-lg mt-1">Admission</h4>
-          <p class="text-slate-500 text-xs mt-2">ใช้คะแนนสอบส่วนกลาง TGAT/TPAT และ A-Level</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl border-t-4 border-slate-300 shadow-sm">
-          <span class="text-slate-400 font-bold text-sm">ROUND 4</span>
-          <h4 class="font-bold text-lg mt-1">Direct</h4>
-          <p class="text-slate-500 text-xs mt-2">การรับสมัครตรงในรอบเก็บตก (ถ้ามี)</p>
-        </div>
+      <div id="admission-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <!-- Admission cards will be injected here via JavaScript -->
+      </div>
+      <div id="admission-view-more" class="mt-8 text-center">
+        <!-- Admission view more link will be injected here via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline" class="py-20 bg-white scroll-mt-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold text-slate-900">Study <span class="text-red-600">Timeline</span></h2>
+        <p class="text-slate-600 mt-4">ภาพรวมการเรียนรู้ตลอด 4 ปีในหลักสูตรวิศวกรรมซอฟต์แวร์</p>
+      </div>
+
+      <div id="timeline-list" class="space-y-8">
+        <!-- Timeline items will be injected here via JavaScript -->
       </div>
     </div>
   </section>
@@ -198,42 +222,63 @@
             หลักสูตรเน้นการใช้งาน Framework และเครื่องมือที่เป็นมาตรฐานในตลาดงานปัจจุบัน
             เพื่อให้นิสิตพร้อมเริ่มงานได้ทันทีหลังจบการศึกษา
           </p>
-          <div class="flex flex-wrap gap-3">
-            <span class="tech-badge bg-red-600 text-white">Laravel Framework</span>
-            <span class="tech-badge bg-red-600 text-white">Docker & Containers</span>
-            <span class="tech-badge bg-red-600 text-white">MySQL Database</span>
-            <span class="tech-badge bg-red-600 text-white">JavaScript (ES6+)</span>
-            <span class="tech-badge bg-red-600 text-white">Tailwind CSS</span>
-            <span class="tech-badge bg-red-600 text-white">Git Version Control</span>
-            <span class="tech-badge bg-red-600 text-white">RESTful API</span>
-            <span class="tech-badge bg-red-600 text-white">MVC Architecture</span>
+          <div id="tech-badges" class="flex flex-wrap gap-3">
+            <!-- Tech badges will be injected here via JavaScript -->
           </div>
         </div>
-        <div class="md:w-1/2 grid grid-cols-2 gap-4">
-          <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center">
-            <i class="fa-brands fa-laravel text-4xl text-red-500 mb-4"></i>
-            <p class="text-sm font-bold">Laravel</p>
+        <div id="tech-highlights" class="md:w-1/2 grid grid-cols-2 gap-4">
+          <!-- Tech highlights will be injected here via JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facebook Posts Section -->
+  <section id="facebook-posts" class="py-20 bg-slate-50 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-slate-900">Latest <span class="text-red-600">Facebook Posts</span></h2>
+        <p class="text-slate-600 mt-4">อัปเดตข่าวสารล่าสุดจากเพจ Software Engineering BUU</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-5 md:p-7 border border-slate-200 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl">
+            <i class="fa-brands fa-facebook-f"></i>
           </div>
-          <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center">
-            <i class="fa-solid fa-database text-4xl text-blue-400 mb-4"></i>
-            <p class="text-sm font-bold">MySQL</p>
-          </div>
-          <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center">
-            <i class="fa-brands fa-docker text-4xl text-cyan-400 mb-4"></i>
-            <p class="text-sm font-bold">Docker Infrastructure</p>
-          </div>
-          <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center">
-            <i class="fa-brands fa-js text-4xl text-yellow-400 mb-4"></i>
-            <p class="text-sm font-bold">Interactive Web</p>
-          </div>
+          <p class="font-bold text-slate-900 leading-tight">Facebook</p>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100">
+          <iframe
+            title="Software Engineering BUU Facebook Timeline"
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSoftEngBUU&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
+            width="500"
+            height="700"
+            class="w-full max-w-[500px] h-[520px] sm:h-[620px] md:h-[700px] mx-auto block"
+            style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+          <div class="absolute inset-0" aria-hidden="true"></div>
+          <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" aria-hidden="true"></div>
+        </div>
+
+        <div class="mt-6 text-center">
+          <a href="https://www.facebook.com/SoftEngBUU" target="_blank"
+            class="inline-flex items-center justify-center bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg shadow-red-900/20">
+            View More on Facebook <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Portal Section -->
-  <section id="portal" class="py-24 px-4 bg-white">
-    <div class="max-w-7xl mx-auto">
+  <section id="portal" class="bg-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto py-24 px-4">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-slate-900">Information <span class="text-red-600">Portal</span></h2>
         <p class="text-slate-600 mt-4">เข้าถึงระบบจัดการการเรียนการสอนและบริการต่างๆ ของสาขา</p>
@@ -246,8 +291,66 @@
     </div>
   </section>
 
+  <!-- Future Work Section -->
+  <section id="future-work" class="py-20 bg-slate-50 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-slate-900">Future <span class="text-red-600">Work</span></h2>
+        <p class="text-slate-600 mt-4">แนวทางการพัฒนาหลักสูตรและระบบสนับสนุนในระยะถัดไป</p>
+      </div>
+
+      <div id="future-work-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Future work items will be injected here via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-white scroll-mt-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-slate-900">Frequently Asked <span class="text-red-600">Questions</span></h2>
+        <p class="text-slate-600 mt-4">คำถามที่พบบ่อยเกี่ยวกับหลักสูตรและการสมัครเรียน</p>
+      </div>
+
+      <div id="faq-list" class="space-y-4">
+        <!-- FAQ items will be injected here via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <div id="timeline-viewer" class="fixed inset-0 z-[80] hidden items-center justify-center p-4">
+    <div id="timeline-viewer-backdrop" class="absolute inset-0 bg-black/75"></div>
+    <div class="relative w-full max-w-5xl z-10">
+      <button id="timeline-viewer-close" type="button"
+        class="absolute -top-10 right-0 text-white hover:text-red-300 transition text-2xl" aria-label="Close image viewer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="rounded-2xl overflow-hidden border border-white/20 bg-slate-900 shadow-2xl">
+        <img id="timeline-viewer-image" src="" alt="" class="w-full max-h-[75vh] object-contain bg-black">
+        <div class="flex items-center justify-between px-4 py-3 text-white bg-slate-900">
+          <p id="timeline-viewer-caption" class="text-sm"></p>
+          <p id="timeline-viewer-counter" class="text-xs font-bold tracking-wide"></p>
+        </div>
+      </div>
+
+      <button id="timeline-viewer-prev" type="button"
+        class="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 text-white hover:bg-black/80 transition"
+        aria-label="Previous image">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <button id="timeline-viewer-next" type="button"
+        class="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 text-white hover:bg-black/80 transition"
+        aria-label="Next image">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
   <!-- Footer -->
-  <footer class="bg-slate-950 text-slate-400 py-16 px-4 border-t-4 border-red-600">
+  <footer class="bg-slate-950 text-slate-400 py-8 px-4 border-t-4 border-red-600">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
       <div>
         <div class="flex items-center space-x-3 mb-6">
@@ -260,61 +363,709 @@
       </div>
       <div>
         <h5 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Quick Links</h5>
-        <ul class="space-y-3 text-sm">
-          <li><a href="#" class="hover:text-red-500 transition">แผนการเรียน 4 ปี</a></li>
-          <li><a href="#" class="hover:text-red-500 transition">แนะนำห้องปฏิบัติการ</a></li>
-          <li><a href="#" class="hover:text-red-500 transition">ศิษย์เก่าที่ประสบความสำเร็จ</a></li>
-          <li><a href="#" class="hover:text-red-500 transition">ทุนการศึกษา</a></li>
+        <ul id="quick-links" class="space-y-3 text-sm">
+          <!-- Quick links will be injected here via JavaScript -->
         </ul>
       </div>
       <div>
         <h5 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Contact Us</h5>
-        <div class="space-y-4">
-          <a href="https://www.facebook.com/SoftEngBUU" target="_blank"
-            class="flex items-center space-x-3 hover:text-white transition">
-            <i class="fa-brands fa-facebook text-2xl text-red-600"></i>
-            <span>Software Engineering BUU</span>
-          </a>
-          <div class="flex items-start space-x-3">
-            <i class="fa-solid fa-location-dot mt-1 text-red-600"></i>
-            <span class="text-sm">คณะสารสนเทศศาสตร์ ม.บูรพา <br>ต.แสนสุข อ.เมือง จ.ชลบุรี 20131</span>
-          </div>
+        <div id="contact-us" class="space-y-4">
+          <!-- Contact items will be injected here via JavaScript -->
         </div>
       </div>
     </div>
     <div
       class="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-900 text-center text-[10px] uppercase tracking-widest">
-      &copy; 2024-2025 Software Engineering, Burapha University. Crafted for Excellence.
+      &copy; 2010-<span id="current-year"></span> Software Engineering, Burapha University. All rights reserved.
+      <br>
+      <br>
+      " เรียนหนัก นอนดึก ความถึกต้องเรา วันหยุดไม่ได้หยุด วันลาไม่ได้ลา กลางวันนั่งหาว กลางคืนเฮฮา "
     </div>
   </footer>
 
   <!-- Dynamic Rendering Script -->
   <script>
-    async function renderPortals() {
-      const container = document.getElementById('portal-grid');
-
-      try {
-        // ดึงข้อมูลจากไฟล์ json
-        const response = await fetch('./data.json');
-        const portalData = await response.json();
-
-        container.innerHTML = portalData.map(item => `
-            <a href="${item.url}" class="portal-card bg-slate-50 p-8 rounded-3xl border border-transparent transition-all duration-300 group flex flex-col h-full">
-                <div class="${item.themeColor} text-white w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-lg ${item.shadow} group-hover:scale-110 transition shrink-0">
-                    <i class="${item.icon} text-2xl"></i>
-                </div>
-                <h4 class="font-bold text-xl text-slate-800">${item.title}</h4>
-                <p class="text-slate-500 text-sm mt-3 flex-grow">${item.description}</p>
-                <div class="mt-6 text-red-600 font-bold text-sm">เข้าใช้งาน <i class="fa-solid fa-chevron-right ml-1"></i></div>
-            </a>
-        `).join('');
-      } catch (error) {
-        console.error("Error loading JSON:", error);
-        container.innerHTML = "<p>ไม่สามารถโหลดข้อมูลได้ในขณะนี้</p>";
+    function setCurrentYear() {
+      const yearElement = document.getElementById('current-year');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
       }
     }
 
-    document.addEventListener('DOMContentLoaded', renderPortals);
+    async function fetchJson(url) {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Failed to load ${url}: ${response.status}`);
+      }
+      return response.json();
+    }
+
+    function renderUniqueSellingPoints(items = []) {
+      const container = document.getElementById('usp-grid');
+      if (!container) return;
+
+      container.innerHTML = items.map(item => `
+        <div class="flex flex-col items-center text-center">
+          <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl shadow-inner">
+            <i class="${item.icon}"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">${item.title}</h3>
+          <p class="text-slate-500">${item.description}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderAdmission(rounds = [], viewMore = null) {
+      const container = document.getElementById('admission-grid');
+      const viewMoreContainer = document.getElementById('admission-view-more');
+      if (!container) return;
+
+      const getAdmissionStatus = (item) => {
+        if (item.registrationStart && item.registrationEnd) {
+          const now = new Date();
+          const startDate = new Date(`${item.registrationStart}T00:00:00`);
+          const endDate = new Date(`${item.registrationEnd}T23:59:59`);
+
+          if (now < startDate) {
+            return { status: 'upcoming', statusLabel: 'ยังไม่ถึงวันเปิดรับสมัคร' };
+          }
+
+          if (now <= endDate) {
+            return { status: 'open', statusLabel: 'เปิดรับสมัครอยู่' };
+          }
+
+          return { status: 'closed', statusLabel: 'ปิดรับสมัคร' };
+        }
+
+        return {
+          status: item.status || 'closed',
+          statusLabel: item.statusLabel || (item.status === 'open' ? 'เปิดรับสมัครอยู่' : 'ปิดรับสมัคร')
+        };
+      };
+
+      container.innerHTML = rounds.map((item, index) => {
+        const isActive = item.active ?? index === 0;
+        const borderClass = isActive ? 'border-red-600' : 'border-slate-300';
+        const roundClass = isActive ? 'text-red-600' : 'text-slate-400';
+        const period = item.period ? `<p class="text-red-500 text-xs font-bold mt-3">${item.period}</p>` : '';
+        const statusInfo = getAdmissionStatus(item);
+        const statusClass = statusInfo.status === 'open'
+          ? 'bg-emerald-100 text-emerald-700'
+          : statusInfo.status === 'upcoming'
+            ? 'bg-amber-100 text-amber-700'
+            : 'bg-slate-200 text-slate-600';
+
+        return `
+          <div class="bg-white p-7 rounded-2xl border-t-4 ${borderClass} shadow-sm h-full">
+            <span class="${roundClass} font-bold text-sm">${item.round}</span>
+            <div class="mt-3 mb-2">
+              <span class="${statusClass} text-[11px] font-bold px-3 py-1 rounded-full">${statusInfo.statusLabel}</span>
+            </div>
+            <h4 class="font-bold text-lg mt-1">${item.title}</h4>
+            <p class="text-slate-500 text-xs mt-2">${item.description}</p>
+            ${period}
+          </div>
+        `;
+      }).join('');
+
+      if (viewMoreContainer) {
+        if (viewMore?.url) {
+          const label = viewMore.label || 'View More';
+          viewMoreContainer.innerHTML = `
+            <a href="${viewMore.url}" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg shadow-red-900/20">
+              ${label} <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+            </a>
+          `;
+        } else {
+          viewMoreContainer.innerHTML = '';
+        }
+      }
+    }
+
+    function renderTechStack(techStack = {}) {
+      const badgesContainer = document.getElementById('tech-badges');
+      const highlightsContainer = document.getElementById('tech-highlights');
+
+      if (badgesContainer) {
+        const badges = techStack.badges ?? [];
+        badgesContainer.innerHTML = badges.map(label => `
+          <span class="tech-badge bg-red-600 text-white">${label}</span>
+        `).join('');
+      }
+
+      if (highlightsContainer) {
+        const highlights = techStack.highlights ?? [];
+        highlightsContainer.innerHTML = highlights.map(item => `
+          <div class="group bg-white/5 p-6 rounded-xl border border-white/10 text-center">
+            <i class="${item.icon} text-4xl ${item.iconColor} mb-4 grayscale opacity-80 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100"></i>
+            <p class="text-sm font-bold">${item.title}</p>
+          </div>
+        `).join('');
+      }
+    }
+
+    function renderPortals(items = []) {
+      const container = document.getElementById('portal-grid');
+      if (!container) return;
+
+      container.innerHTML = items.map(item => `
+        <a href="${item.url}" target="_blank" class="portal-card bg-slate-50 p-8 rounded-3xl border border-transparent transition-all duration-300 group flex flex-col h-full">
+          <div class="${item.themeColor} text-white w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-lg ${item.shadow} group-hover:scale-110 transition shrink-0 mx-auto">
+            <i class="${item.icon} text-2xl"></i>
+          </div>
+          <h4 class="font-bold text-xl text-slate-800">${item.title}</h4>
+          <p class="text-slate-500 text-sm mt-3 flex-grow">${item.description}</p>
+          <div class="mt-6 text-red-600 font-bold text-sm">เข้าใช้งาน <i class="fa-solid fa-chevron-right ml-1"></i></div>
+        </a>
+      `).join('');
+    }
+
+    function renderQuickLinks(items = []) {
+      const container = document.getElementById('quick-links');
+      if (!container) return;
+
+      container.innerHTML = items.map(item => `
+        <li><a href="${item.url}" target="_blank" rel="noopener noreferrer" class="hover:text-red-500 transition">${item.label}</a></li>
+      `).join('');
+    }
+
+    function renderContactUs(items = []) {
+      const container = document.getElementById('contact-us');
+      if (!container) return;
+
+      container.innerHTML = items.map(item => {
+        if (item.type === 'link' && item.url) {
+          const isExternal = !(item.url.startsWith('mailto:') || item.url.startsWith('tel:'));
+          const targetAttrs = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
+          return `
+            <a href="${item.url}" ${targetAttrs} class="flex items-center space-x-3 hover:text-white transition">
+              <i class="${item.icon}"></i>
+              <span>${item.label}</span>
+            </a>
+          `;
+        }
+
+        return `
+          <div class="flex items-start space-x-3">
+            <i class="${item.icon}"></i>
+            <span class="text-sm">${item.label}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderFAQ(items = []) {
+      const container = document.getElementById('faq-list');
+      if (!container) return;
+
+      container.innerHTML = items.map(item => `
+        <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-6">
+          <summary class="list-none cursor-pointer flex items-start justify-between gap-4">
+            <h3 class="font-bold text-slate-900 text-lg">${item.question}</h3>
+            <span class="text-red-600 mt-1 transition-transform group-open:rotate-180">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </summary>
+          <p class="text-slate-600 mt-4 leading-relaxed">${item.answer}</p>
+        </details>
+      `).join('');
+    }
+
+    function renderTimeline(items = []) {
+      const container = document.getElementById('timeline-list');
+      if (!container) return;
+
+      const timelineViewerData = items.map(item => {
+        const imageList = Array.isArray(item.images) && item.images.length > 0
+          ? item.images
+          : (item.image ? [item.image] : []);
+
+        const normalizedImages = imageList
+          .map(image => {
+            if (typeof image === 'string') {
+              return { src: image, alt: item.imageAlt || item.title };
+            }
+
+            if (image?.src) {
+              return { src: image.src, alt: image.alt || item.imageAlt || item.title };
+            }
+
+            return null;
+          })
+          .filter(Boolean);
+
+        return {
+          year: item.year,
+          title: item.title,
+          images: normalizedImages
+        };
+      });
+
+      container.dataset.timelineViewer = JSON.stringify(timelineViewerData);
+
+      container.innerHTML = items.map((item, yearIndex) => {
+        const imageList = Array.isArray(item.images) && item.images.length > 0
+          ? item.images
+          : (item.image ? [item.image] : []);
+
+        const images = imageList
+          .map(image => {
+            if (typeof image === 'string') {
+              return { src: image, alt: item.imageAlt || item.title };
+            }
+
+            if (image?.src) {
+              return { src: image.src, alt: image.alt || item.imageAlt || item.title };
+            }
+
+            return null;
+          })
+          .filter(Boolean);
+
+        const renderImageCard = (image, imageIndex, heightClass, extraOverlay = '') => `
+          <button type="button"
+            class="relative w-full rounded-xl overflow-hidden border border-slate-200 bg-white hover:opacity-90 transition"
+            data-timeline-open="true"
+            data-year-index="${yearIndex}"
+            data-image-index="${imageIndex}">
+            <img src="${image.src}" alt="${image.alt}" class="w-full ${heightClass} object-cover" loading="lazy">
+            ${extraOverlay}
+          </button>
+        `;
+
+        let galleryMarkup = '';
+        const hasImages = images.length > 0;
+
+        if (images.length === 1) {
+          galleryMarkup = renderImageCard(images[0], 0, 'h-44');
+        } else if (images.length === 2) {
+          galleryMarkup = `
+            <div class="grid grid-cols-2 gap-2">
+              ${renderImageCard(images[0], 0, 'h-40')}
+              ${renderImageCard(images[1], 1, 'h-40')}
+            </div>
+          `;
+        } else if (images.length >= 3) {
+          const remainingCount = images.length - 3;
+          const thirdOverlay = remainingCount > 0
+            ? `<span class="absolute inset-0 bg-black/55 text-white font-extrabold text-xl flex items-center justify-center">+${remainingCount}</span>`
+            : '';
+
+          galleryMarkup = `
+            <div class="space-y-2">
+              ${renderImageCard(images[0], 0, 'h-36')}
+              <div class="grid grid-cols-2 gap-2">
+                ${renderImageCard(images[1], 1, 'h-28')}
+                ${renderImageCard(images[2], 2, 'h-28', thirdOverlay)}
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="relative pl-8 md:pl-10">
+            <div class="absolute left-3 md:left-4 top-0 h-full w-px bg-red-200"></div>
+            <div class="absolute left-0 md:left-1 top-2 w-6 h-6 rounded-full bg-red-600 border-4 border-white shadow"></div>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-7">
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">${item.year}</span>
+                <h3 class="text-xl font-bold text-slate-900">${item.title}</h3>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-5 items-start">
+                <p class="text-slate-600 leading-relaxed timeline-description ${hasImages ? 'md:col-span-3' : 'md:col-span-5'}">${item.description}</p>
+                ${hasImages ? `
+                  <div class="md:col-span-2">
+                    ${galleryMarkup}
+                  </div>
+                ` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderFutureWork(items = []) {
+      const container = document.getElementById('future-work-grid');
+      if (!container) return;
+
+      container.innerHTML = items.map(item => `
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm h-full flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl shrink-0">
+            <i class="${item.icon}" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-slate-900">${item.title}</h3>
+            <p class="text-slate-600 mt-2 leading-relaxed">${item.description}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function renderDynamicContent() {
+      const portalContainer = document.getElementById('portal-grid');
+
+      try {
+        const [uspData, admissionData, timelineData, techStackData, portalData, quickLinksData, contactData, faqData, futureWorkData] = await Promise.all([
+          fetchJson('./data/usp.json'),
+          fetchJson('./data/admission.json'),
+          fetchJson('./data/timeline.json'),
+          fetchJson('./data/tech-stack.json'),
+          fetchJson('./data/portal.json'),
+          fetchJson('./data/quick-links.json'),
+          fetchJson('./data/contact.json'),
+          fetchJson('./data/faq.json'),
+          fetchJson('./data/future-work.json'),
+        ]);
+
+        renderUniqueSellingPoints(uspData);
+        renderAdmission(admissionData.rounds, admissionData.viewMore);
+        renderTimeline(timelineData);
+        renderTechStack(techStackData);
+        renderPortals(portalData);
+        renderQuickLinks(quickLinksData);
+        renderContactUs(contactData);
+        renderFAQ(faqData);
+        renderFutureWork(futureWorkData);
+      } catch (error) {
+        console.error('Error loading JSON:', error);
+        if (portalContainer) {
+          portalContainer.innerHTML = '<p>ไม่สามารถโหลดข้อมูลได้ในขณะนี้</p>';
+        }
+      }
+    }
+
+    async function fetchJson(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return await response.json();
+      } catch (e) {
+        console.error("Could not fetch JSON: ", e);
+        return []; // คืนค่าเป็น Array ว่างถ้าโหลดไม่สำเร็จ เพื่อไม่ให้หน้าเว็บพัง
+      }
+    }
+
+    async function getDirectoryEntries(directoryPath) {
+      try {
+        const directoryUrl = new URL(directoryPath, window.location.href);
+        const response = await fetch(directoryUrl.href, { cache: 'no-store' });
+        if (!response.ok) return [];
+
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const anchors = Array.from(doc.querySelectorAll('a[href]'));
+
+        const entries = anchors
+          .map(anchor => anchor.getAttribute('href')?.trim() || '')
+          .filter(href => href && href !== '../' && href !== './' && !href.startsWith('#') && !href.startsWith('?'))
+          .map((href) => {
+            try {
+              const resolvedUrl = new URL(href, directoryUrl);
+              if (resolvedUrl.origin !== window.location.origin) return null;
+
+              const path = decodeURIComponent(resolvedUrl.pathname);
+              const isDirectory = path.endsWith('/');
+              return {
+                path,
+                isDirectory,
+              };
+            } catch {
+              return null;
+            }
+          })
+          .filter(Boolean);
+
+        const deduped = new Map();
+        entries.forEach((entry) => {
+          if (!deduped.has(entry.path)) {
+            deduped.set(entry.path, entry);
+          }
+        });
+
+        return Array.from(deduped.values());
+      } catch {
+        return [];
+      }
+    }
+
+    function isImageFile(filePath) {
+      return /\.(png|jpe?g|gif|webp|svg|avif)$/i.test(filePath);
+    }
+
+    function hasFileExtension(filePath) {
+      return /\.[^/]+$/i.test(filePath);
+    }
+
+    function normalizeDirectoryPath(pathname) {
+      if (!pathname) return '/';
+      return pathname.endsWith('/') ? pathname : `${pathname}/`;
+    }
+
+    async function discoverImagesFromFolder(rootFolder = 'images/') {
+      const normalizedRoot = rootFolder.endsWith('/') ? rootFolder : `${rootFolder}/`;
+      const rootUrl = new URL(normalizedRoot, window.location.href);
+      const rootPath = normalizeDirectoryPath(decodeURIComponent(rootUrl.pathname));
+
+      const pendingFolders = [rootPath];
+      const visitedFolders = new Set();
+      const discoveredImages = new Set();
+
+      while (pendingFolders.length > 0) {
+        const currentFolder = pendingFolders.shift();
+        if (!currentFolder || visitedFolders.has(currentFolder)) continue;
+        visitedFolders.add(currentFolder);
+
+        const entries = await getDirectoryEntries(currentFolder);
+
+        entries.forEach(entry => {
+          if (!entry.path.startsWith(rootPath)) return;
+
+          if (entry.isDirectory) {
+            const directoryPath = normalizeDirectoryPath(entry.path);
+            if (!visitedFolders.has(directoryPath)) {
+              pendingFolders.push(directoryPath);
+            }
+            return;
+          }
+
+          if (isImageFile(entry.path)) {
+            discoveredImages.add(entry.path);
+            return;
+          }
+
+          if (!hasFileExtension(entry.path)) {
+            const guessedDirectoryPath = normalizeDirectoryPath(entry.path);
+            if (!visitedFolders.has(guessedDirectoryPath)) {
+              pendingFolders.push(guessedDirectoryPath);
+            }
+          }
+        });
+      }
+
+      return Array.from(discoveredImages).sort((left, right) => left.localeCompare(right, undefined, { numeric: true }));
+    }
+
+    async function initHeroCarousel() {
+      const imageElement = document.getElementById('hero-carousel-image');
+      const prevButton = document.getElementById('hero-carousel-prev');
+      const nextButton = document.getElementById('hero-carousel-next');
+      const dotsContainer = document.getElementById('hero-carousel-dots');
+
+      if (!imageElement || !prevButton || !nextButton || !dotsContainer) return;
+
+      const discoveredImages = await discoverImagesFromFolder('images/');
+      const fallbackImage = imageElement.getAttribute('src') || '';
+      const heroImages = discoveredImages.length > 0
+        ? discoveredImages
+        : (fallbackImage ? [fallbackImage] : []);
+
+      if (heroImages.length === 0) return;
+
+      let currentIndex = 0;
+      let timerId = null;
+
+      const renderDots = () => {
+        dotsContainer.innerHTML = heroImages.map((_, index) => `
+          <button type="button"
+            class="hero-dot w-2.5 h-2.5 rounded-full transition ${index === currentIndex ? 'bg-white' : 'bg-white/50'}"
+            data-hero-index="${index}"
+            aria-label="Go to slide ${index + 1}"></button>
+        `).join('');
+      };
+
+      const goToSlide = (index) => {
+        const lastIndex = heroImages.length - 1;
+        if (index < 0) {
+          currentIndex = lastIndex;
+        } else if (index > lastIndex) {
+          currentIndex = 0;
+        } else {
+          currentIndex = index;
+        }
+
+        imageElement.src = heroImages[currentIndex];
+        imageElement.alt = `Hero activity ${currentIndex + 1}`;
+        renderDots();
+      };
+
+      const restartAutoSlide = () => {
+        if (timerId) clearInterval(timerId);
+        timerId = setInterval(() => goToSlide(currentIndex + 1), 4500);
+      };
+
+      prevButton.addEventListener('click', () => {
+        goToSlide(currentIndex - 1);
+        restartAutoSlide();
+      });
+
+      nextButton.addEventListener('click', () => {
+        goToSlide(currentIndex + 1);
+        restartAutoSlide();
+      });
+
+      dotsContainer.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target.closest('[data-hero-index]') : null;
+        if (!target) return;
+
+        const index = Number(target.getAttribute('data-hero-index'));
+        if (Number.isNaN(index)) return;
+
+        goToSlide(index);
+        restartAutoSlide();
+      });
+
+      goToSlide(0);
+      restartAutoSlide();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      initHeroCarousel();
+
+      if (mobileMenuButton && mobileMenu) {
+        const icon = mobileMenuButton.querySelector('i');
+
+        mobileMenuButton.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.toggle('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', String(!isHidden));
+
+          if (icon) {
+            icon.classList.toggle('fa-bars', isHidden);
+            icon.classList.toggle('fa-xmark', !isHidden);
+          }
+        });
+
+        mobileMenu.querySelectorAll('a[href^="#"]').forEach((link) => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-xmark');
+            }
+          });
+        });
+      }
+
+      const timelineList = document.getElementById('timeline-list');
+      const timelineViewer = document.getElementById('timeline-viewer');
+      const timelineViewerBackdrop = document.getElementById('timeline-viewer-backdrop');
+      const timelineViewerClose = document.getElementById('timeline-viewer-close');
+      const timelineViewerPrev = document.getElementById('timeline-viewer-prev');
+      const timelineViewerNext = document.getElementById('timeline-viewer-next');
+      const timelineViewerImage = document.getElementById('timeline-viewer-image');
+      const timelineViewerCaption = document.getElementById('timeline-viewer-caption');
+      const timelineViewerCounter = document.getElementById('timeline-viewer-counter');
+
+      let activeYearIndex = 0;
+      let activeImageIndex = 0;
+
+      const isViewerVisible = () => timelineViewer && !timelineViewer.classList.contains('hidden');
+
+      const getTimelineViewerData = () => {
+        if (!timelineList?.dataset.timelineViewer) return [];
+        try {
+          return JSON.parse(timelineList.dataset.timelineViewer);
+        } catch {
+          return [];
+        }
+      };
+
+      const renderViewer = () => {
+        const data = getTimelineViewerData();
+        const yearData = data[activeYearIndex];
+        if (!yearData || !Array.isArray(yearData.images) || yearData.images.length === 0) return;
+
+        const totalImages = yearData.images.length;
+        if (activeImageIndex < 0) activeImageIndex = totalImages - 1;
+        if (activeImageIndex >= totalImages) activeImageIndex = 0;
+
+        const currentImage = yearData.images[activeImageIndex];
+        if (!timelineViewerImage || !timelineViewerCaption || !timelineViewerCounter) return;
+
+        timelineViewerImage.src = currentImage.src;
+        timelineViewerImage.alt = currentImage.alt || `${yearData.title}`;
+        timelineViewerCaption.textContent = `${yearData.year} • ${yearData.title}`;
+        timelineViewerCounter.textContent = `${activeImageIndex + 1} / ${totalImages}`;
+      };
+
+      const openViewer = (yearIndex, imageIndex) => {
+        activeYearIndex = yearIndex;
+        activeImageIndex = imageIndex;
+        renderViewer();
+        if (timelineViewer) {
+          timelineViewer.classList.remove('hidden');
+          timelineViewer.classList.add('flex');
+          document.body.classList.add('overflow-hidden');
+        }
+      };
+
+      const closeViewer = () => {
+        if (timelineViewer) {
+          timelineViewer.classList.add('hidden');
+          timelineViewer.classList.remove('flex');
+          document.body.classList.remove('overflow-hidden');
+        }
+      };
+
+      const goNextImage = () => {
+        activeImageIndex += 1;
+        renderViewer();
+      };
+
+      const goPrevImage = () => {
+        activeImageIndex -= 1;
+        renderViewer();
+      };
+
+      if (timelineList) {
+        timelineList.addEventListener('click', (event) => {
+          const target = event.target instanceof Element ? event.target.closest('[data-timeline-open="true"]') : null;
+          if (!target) return;
+
+          const yearIndex = Number(target.getAttribute('data-year-index'));
+          const imageIndex = Number(target.getAttribute('data-image-index'));
+
+          if (Number.isNaN(yearIndex) || Number.isNaN(imageIndex)) return;
+          openViewer(yearIndex, imageIndex);
+        });
+      }
+
+      timelineViewerClose?.addEventListener('click', closeViewer);
+      timelineViewerBackdrop?.addEventListener('click', closeViewer);
+      timelineViewerNext?.addEventListener('click', goNextImage);
+      timelineViewerPrev?.addEventListener('click', goPrevImage);
+
+      document.addEventListener('keydown', (event) => {
+        if (!isViewerVisible()) return;
+
+        if (event.key === 'Escape') {
+          closeViewer();
+          return;
+        }
+
+        if (event.key === 'ArrowRight') {
+          goNextImage();
+          return;
+        }
+
+        if (event.key === 'ArrowLeft') {
+          goPrevImage();
+        }
+      });
+
+      setCurrentYear();
+      renderDynamicContent();
+    });
+
   </script>
 
 </body>

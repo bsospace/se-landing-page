@@ -1,0 +1,17 @@
+[
+  {
+    "icon": "fa-solid fa-users-viewfinder",
+    "title": "Project-Based Learning",
+    "description": "เรียนผ่านการลงมือทำโครงงานจริงในทุกภาคการศึกษา พัฒนาระบบที่ใช้งานได้จริงอย่างเข้มข้นตั้งแต่ชั้นปีที่ 2"
+  },
+  {
+    "icon": "fa-solid fa-handshake-angle",
+    "title": "Industry Partnership",
+    "description": "ความร่วมมือกับบริษัทชั้นนำใน EEC เพื่อให้นิสิตได้ฝึกงานแบบ CWIE และปฏิบัติงานจริงในสถานประกอบการนานกว่า 4 เดือน"
+  },
+  {
+    "icon": "fa-solid fa-shield-halved",
+    "title": "Open Source Ethics",
+    "description": "ปลูกฝังจรรยาบรรณวิชาชีพและการแบ่งปันความรู้ผ่านวิถีโอเพนซอร์สที่เป็นสากล"
+  }
+]

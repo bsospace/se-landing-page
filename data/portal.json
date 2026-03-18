@@ -1,0 +1,50 @@
+[
+  {
+    "title": "IF Student Profile",
+    "description": "ระบบจัดเก็บและติดตามข้อมูลศักยภาพนิสิต",
+    "url": "https://profile.informatics.buu.ac.th",
+    "icon": "fa-solid fa-address-book",
+    "themeColor": "bg-red-700",
+    "shadow": "shadow-red-200"
+  },
+  {
+    "title": "ผลงานนิสิต (Online Exhibition)",
+    "description": "แพลตฟอร์มจัดแสดงผลงานโครงงานของนิสิต",
+    "url": "https://prepro.informatics.buu.ac.th/exhi",
+    "icon": "fa-solid fa-palette",
+    "themeColor": "bg-red-500",
+    "shadow": "shadow-red-100"
+  },
+  {
+    "title": "ระบบ AppDOSI",
+    "description": "ระบบจัดทำเอกสารหลักสูตร และติดตามความก้าวหน้าการเรียน",
+    "url": "http://se.informatics.buu.ac.th/AppDOSI",
+    "icon": "fa-solid fa-file-signature",
+    "themeColor": "bg-red-600",
+    "shadow": "shadow-red-200"
+  },
+  {
+    "title": "Gamification - OSSD",
+    "description": "แพลตฟอร์ม Scrumification สำหรับค่าย Open Source Software Developers (OSSD)",
+    "url": "http://se.informatics.buu.ac.th/gami_ossd",
+    "icon": "fa-solid fa-trophy",
+    "themeColor": "bg-rose-600",
+    "shadow": "shadow-rose-200"
+  },
+  {
+    "title": "ระบบสัมมนา (Seminar)",
+    "description": "ระบบจัดการหัวข้อสัมมนาวิจัยและโครงงานวิศวกรรมซอฟต์แวร์",
+    "url": "http://se.informatics.buu.ac.th/seminar",
+    "icon": "fa-solid fa-microphone-lines",
+    "themeColor": "bg-red-900",
+    "shadow": "shadow-red-300"
+  },
+  {
+    "title": "Learning Programming Platforms",
+    "description": "แพลตฟอร์มการเรียนรู้การเขียนโปรแกรมสำหรับนิสิต",
+    "url": "http://lpp.informatics.buu.ac.th",
+    "icon": "fa-solid fa-laptop-code",
+    "themeColor": "bg-red-800",
+    "shadow": "shadow-red-300"
+  }
+]

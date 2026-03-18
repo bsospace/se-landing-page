@@ -1,0 +1,35 @@
+{
+  "badges": [
+    "Laravel Framework",
+    "Docker & Containers",
+    "MySQL Database",
+    "JavaScript (ES6+)",
+    "Tailwind CSS",
+    "Git Version Control",
+    "RESTful API",
+    "MVC Architecture",
+    "OSSD Camp"
+  ],
+  "highlights": [
+    {
+      "icon": "fa-brands fa-laravel",
+      "iconColor": "text-red-500",
+      "title": "Laravel"
+    },
+    {
+      "icon": "fa-solid fa-database",
+      "iconColor": "text-blue-400",
+      "title": "MySQL"
+    },
+    {
+      "icon": "fa-brands fa-docker",
+      "iconColor": "text-cyan-400",
+      "title": "Docker Infrastructure"
+    },
+    {
+      "icon": "fa-brands fa-js",
+      "iconColor": "text-yellow-400",
+      "title": "Interactive Web"
+    }
+  ]
+}

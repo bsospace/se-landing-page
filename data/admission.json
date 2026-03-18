@@ -1,0 +1,48 @@
+{
+  "rounds": [
+    {
+      "round": "รอบ 1",
+      "title": "Portfolio",
+      "description": "เน้นผลงานด้าน IT, การแข่งขัน หรือเกรดเฉลี่ยที่โดดเด่น",
+      "period": "ช่วงเวลา: มหาวิทยาลัยกำหนด (อ้างอิง MyTCAS รอบ Portfolio)",
+      "active": false,
+      "status": "closed",
+      "statusLabel": "ปิดรับสมัคร"
+    },
+    {
+      "round": "รอบ 2",
+      "title": "Quota",
+      "description": "โควตาพื้นที่ภาคตะวันออกและโรงเรียนเครือข่าย",
+      "period": "ช่วงเวลา: มหาวิทยาลัยกำหนด (อ้างอิง MyTCAS รอบ Quota)",
+      "active": false,
+      "status": "closed",
+      "statusLabel": "ปิดรับสมัคร"
+    },
+    {
+      "round": "รอบ 3",
+      "title": "Admission",
+      "description": "ใช้คะแนนสอบส่วนกลาง TGAT/TPAT และ A-Level",
+      "period": "ช่วงเวลา: ระบบ mytcas.com 6-12 พ.ค. 69",
+      "registrationStart": "2026-05-06",
+      "registrationEnd": "2026-05-12",
+      "active": true,
+      "status": "open",
+      "statusLabel": "เปิดรับสมัครอยู่"
+    },
+    {
+      "round": "รอบ 4",
+      "title": "Direct",
+      "description": "การรับสมัครตรงในรอบเก็บตก (ถ้ามี)",
+      "period": "ช่วงเวลา: ระบบมหาวิทยาลัย 28 พ.ค. - 14 มิ.ย. 69",
+      "registrationStart": "2026-05-28",
+      "registrationEnd": "2026-06-14",
+      "active": true,
+      "status": "closed",
+      "statusLabel": "ปิดรับสมัคร"
+    }
+  ],
+  "viewMore": {
+    "label": "View More",
+    "url": "https://www.informatics.buu.ac.th/2020/?page_id=181"
+  }
+}

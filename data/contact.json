@@ -1,0 +1,25 @@
+[
+  {
+    "type": "link",
+    "icon": "fa-brands fa-facebook text-2xl text-red-600",
+    "label": "Software Engineering BUU",
+    "url": "https://www.facebook.com/SoftEngBUU"
+  },
+  {
+    "type": "link",
+    "icon": "fa-brands fa-facebook text-2xl text-red-600",
+    "label": "OSSD - Open Source Software Developers",
+    "url": "https://www.facebook.com/OSSDCamp"
+  },
+  {
+    "type": "link",
+    "icon": "fa-brands fa-facebook text-2xl text-red-600",
+    "label": "Informatics BUU",
+    "url": "https://www.facebook.com/InformaticsBuu"
+  },
+  {
+    "type": "text",
+    "icon": "fa-solid fa-location-dot mt-1 text-red-600",
+    "label": "169 ถนนลงหาดบางแสน ตำบลแสนสุข<br>อำเภอเมือง จังหวัดชลบุรี 20131"
+  }
+]

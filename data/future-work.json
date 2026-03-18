@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Software Engineer",
+    "icon": "fa-solid fa-code",
+    "description": "วิศวกรรมซอฟต์แวร์ หรือนักเขียนโปรแกรม (Programmer/Developer)"
+  },
+  {
+    "title": "Requirement Engineer",
+    "icon": "fa-solid fa-file-invoice",
+    "description": "วิศวกรความต้องการ วิเคราะห์ความต้องการระบบ"
+  },
+  {
+    "title": "Software QA / Tester",
+    "icon": "fa-solid fa-shield",
+    "description": "นักประกันคุณภาพและนักทดสอบซอฟต์แวร์"
+  },
+  {
+    "title": "Process Improvement",
+    "icon": "fa-solid fa-diagram-project",
+    "description": "วิศวกรปรับปรุงกระบวนการซอฟต์แวร์"
+  },
+  {
+    "title": "System Integrator",
+    "icon": "fa-solid fa-network-wired",
+    "description": "นักบูรณาการระบบ เชื่อมโยงระบบต่างๆ เข้าด้วยกัน"
+  },
+  {
+    "title": "System Analyst",
+    "icon": "fa-solid fa-magnifying-glass-chart",
+    "description": "นักวิเคราะห์หรือนักออกแบบระบบ (Analyst / Designer)"
+  },
+  {
+    "title": "UX/UI Designer",
+    "icon": "fa-brands fa-figma",
+    "description": "นักออกแบบหน้าเว็บไซด์"
+  },
+  {
+    "title": "Business Analyst",
+    "icon": "fa-solid fa-magnifying-glass-chart",
+    "description": "นักวิเคราะห์ความต้องการ"
+  },
+  {
+    "title": "Project Manager",
+    "icon": "fa-solid fa-list-check",
+    "description": "ผู้จัดการโครงการซอฟต์แวร์"
+  }
+]
