@@ -392,14 +392,6 @@
       }
     }
 
-    async function fetchJson(url) {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Failed to load ${url}: ${response.status}`);
-      }
-      return response.json();
-    }
-
     function renderUniqueSellingPoints(items = []) {
       const container = document.getElementById('usp-grid');
       if (!container) return;
@@ -572,56 +564,42 @@
       `).join('');
     }
 
+    function normalizeTimelineImages(item = {}) {
+      const imageList = Array.isArray(item.images) && item.images.length > 0
+        ? item.images
+        : (item.image ? [item.image] : []);
+
+      return imageList
+        .map(image => {
+          if (typeof image === 'string') {
+            return { src: image, alt: item.imageAlt || item.title };
+          }
+
+          if (image?.src) {
+            return { src: image.src, alt: image.alt || item.imageAlt || item.title };
+          }
+
+          return null;
+        })
+        .filter(Boolean);
+    }
+
     function renderTimeline(items = []) {
       const container = document.getElementById('timeline-list');
       if (!container) return;
 
       const timelineViewerData = items.map(item => {
-        const imageList = Array.isArray(item.images) && item.images.length > 0
-          ? item.images
-          : (item.image ? [item.image] : []);
-
-        const normalizedImages = imageList
-          .map(image => {
-            if (typeof image === 'string') {
-              return { src: image, alt: item.imageAlt || item.title };
-            }
-
-            if (image?.src) {
-              return { src: image.src, alt: image.alt || item.imageAlt || item.title };
-            }
-
-            return null;
-          })
-          .filter(Boolean);
-
         return {
           year: item.year,
           title: item.title,
-          images: normalizedImages
+          images: normalizeTimelineImages(item)
         };
       });
 
       container.dataset.timelineViewer = JSON.stringify(timelineViewerData);
 
       container.innerHTML = items.map((item, yearIndex) => {
-        const imageList = Array.isArray(item.images) && item.images.length > 0
-          ? item.images
-          : (item.image ? [item.image] : []);
-
-        const images = imageList
-          .map(image => {
-            if (typeof image === 'string') {
-              return { src: image, alt: item.imageAlt || item.title };
-            }
-
-            if (image?.src) {
-              return { src: image.src, alt: image.alt || item.imageAlt || item.title };
-            }
-
-            return null;
-          })
-          .filter(Boolean);
+        const images = normalizeTimelineImages(item);
 
         const renderImageCard = (image, imageIndex, heightClass, extraOverlay = '') => `
           <button type="button"
@@ -751,105 +729,31 @@
       }
     }
 
-    async function getDirectoryEntries(directoryPath) {
-      try {
-        const directoryUrl = new URL(directoryPath, window.location.href);
-        const response = await fetch(directoryUrl.href, { cache: 'no-store' });
-        if (!response.ok) return [];
-
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const anchors = Array.from(doc.querySelectorAll('a[href]'));
-
-        const entries = anchors
-          .map(anchor => anchor.getAttribute('href')?.trim() || '')
-          .filter(href => href && href !== '../' && href !== './' && !href.startsWith('#') && !href.startsWith('?'))
-          .map((href) => {
-            try {
-              const resolvedUrl = new URL(href, directoryUrl);
-              if (resolvedUrl.origin !== window.location.origin) return null;
-
-              const path = decodeURIComponent(resolvedUrl.pathname);
-              const isDirectory = path.endsWith('/');
-              return {
-                path,
-                isDirectory,
-              };
-            } catch {
-              return null;
-            }
-          })
-          .filter(Boolean);
-
-        const deduped = new Map();
-        entries.forEach((entry) => {
-          if (!deduped.has(entry.path)) {
-            deduped.set(entry.path, entry);
-          }
-        });
-
-        return Array.from(deduped.values());
-      } catch {
-        return [];
-      }
-    }
-
     function isImageFile(filePath) {
       return /\.(png|jpe?g|gif|webp|svg|avif)$/i.test(filePath);
     }
 
-    function hasFileExtension(filePath) {
-      return /\.[^/]+$/i.test(filePath);
+    function normalizeHeroImageList(value) {
+      if (!Array.isArray(value)) return [];
+
+      return value
+        .map((item) => {
+          if (typeof item === 'string') {
+            return item;
+          }
+
+          if (item && typeof item === 'object' && typeof item.src === 'string') {
+            return item.src;
+          }
+
+          return null;
+        })
+        .filter((path) => typeof path === 'string' && isImageFile(path));
     }
 
-    function normalizeDirectoryPath(pathname) {
-      if (!pathname) return '/';
-      return pathname.endsWith('/') ? pathname : `${pathname}/`;
-    }
-
-    async function discoverImagesFromFolder(rootFolder = 'images/') {
-      const normalizedRoot = rootFolder.endsWith('/') ? rootFolder : `${rootFolder}/`;
-      const rootUrl = new URL(normalizedRoot, window.location.href);
-      const rootPath = normalizeDirectoryPath(decodeURIComponent(rootUrl.pathname));
-
-      const pendingFolders = [rootPath];
-      const visitedFolders = new Set();
-      const discoveredImages = new Set();
-
-      while (pendingFolders.length > 0) {
-        const currentFolder = pendingFolders.shift();
-        if (!currentFolder || visitedFolders.has(currentFolder)) continue;
-        visitedFolders.add(currentFolder);
-
-        const entries = await getDirectoryEntries(currentFolder);
-
-        entries.forEach(entry => {
-          if (!entry.path.startsWith(rootPath)) return;
-
-          if (entry.isDirectory) {
-            const directoryPath = normalizeDirectoryPath(entry.path);
-            if (!visitedFolders.has(directoryPath)) {
-              pendingFolders.push(directoryPath);
-            }
-            return;
-          }
-
-          if (isImageFile(entry.path)) {
-            discoveredImages.add(entry.path);
-            return;
-          }
-
-          if (!hasFileExtension(entry.path)) {
-            const guessedDirectoryPath = normalizeDirectoryPath(entry.path);
-            if (!visitedFolders.has(guessedDirectoryPath)) {
-              pendingFolders.push(guessedDirectoryPath);
-            }
-          }
-        });
-      }
-
-      return Array.from(discoveredImages).sort((left, right) => left.localeCompare(right, undefined, { numeric: true }));
+    async function loadHeroImages() {
+      const manifestImages = normalizeHeroImageList(await fetchJson('./data/hero-images.json'));
+      return manifestImages;
     }
 
     async function initHeroCarousel() {
@@ -860,12 +764,7 @@
 
       if (!imageElement || !prevButton || !nextButton || !dotsContainer) return;
 
-      const discoveredImages = await discoverImagesFromFolder('images/');
-      const fallbackImage = imageElement.getAttribute('src') || '';
-      const heroImages = discoveredImages.length > 0
-        ? discoveredImages
-        : (fallbackImage ? [fallbackImage] : []);
-
+      const heroImages = await loadHeroImages();
       if (heroImages.length === 0) return;
 
       let currentIndex = 0;
