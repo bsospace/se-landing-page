@@ -17,7 +17,7 @@
   },
   {
     "title": "ระบบ AppDOSI",
-    "description": "ระบบจัดทำเอกสารหลักสูตร และติดตามความก้าวหน้าการเรียน",
+    "description": "ระบบติดตามความก้าวหน้าสำหรับวิชา PSP",
     "url": "http://se.informatics.buu.ac.th/AppDOSI",
     "icon": "fa-solid fa-file-signature",
     "themeColor": "bg-red-600",
@@ -33,7 +33,7 @@
   },
   {
     "title": "ระบบสัมมนา (Seminar)",
-    "description": "ระบบจัดการหัวข้อสัมมนาวิจัยและโครงงานวิศวกรรมซอฟต์แวร์",
+    "description": "ระบบจัดการหัวข้อสัมมนาวิชาการ",
     "url": "http://se.informatics.buu.ac.th/seminar",
     "icon": "fa-solid fa-microphone-lines",
     "themeColor": "bg-red-900",

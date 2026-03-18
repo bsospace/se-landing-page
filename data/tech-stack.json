@@ -1,35 +1,55 @@
 {
   "badges": [
-    "Laravel Framework",
-    "Docker & Containers",
-    "MySQL Database",
-    "JavaScript (ES6+)",
-    "Tailwind CSS",
-    "Git Version Control",
-    "RESTful API",
-    "MVC Architecture",
-    "OSSD Camp"
+    {
+      "category": "Development",
+      "color": "border-2 border-blue-400 text-blue-300 bg-transparent",
+      "items": ["Laravel Framework", "Bootstrap", "Tailwind CSS", "RESTful API", "MVC Architecture"]
+    },
+    {
+      "category": "Database & Infrastructure",
+      "color": "border-2 border-cyan-400 text-cyan-300 bg-transparent",
+      "items": ["MySQL Database", "Docker & Containers", "Cloud Computing"]
+    },
+    {
+      "category": "Programming",
+      "color": "border-2 border-yellow-400 text-yellow-300 bg-transparent",
+      "items": ["JavaScript (ES6+)", "OOP", "Git Version Control"]
+    },
+    {
+      "category": "Methodology & Architecture",
+      "color": "border-2 border-emerald-400 text-emerald-300 bg-transparent",
+      "items": ["Agile Methodology", "OOSAD", "Enterprise Architecture", "PSP"]
+    },
+    {
+      "category": "Emerging Technologies",
+      "color": "border-2 border-rose-400 text-rose-300 bg-transparent",
+      "items": ["Artificial Intelligence", "Internet of Things", "OSSD Camp"]
+    }
   ],
   "highlights": [
     {
       "icon": "fa-brands fa-laravel",
       "iconColor": "text-red-500",
-      "title": "Laravel"
+      "title": "Laravel",
+      "description": "เฟรมเวิร์กสมัยใหม่สำหรับพัฒนาแอปพลิเคชันเว็บมืออาชีพ"
     },
     {
       "icon": "fa-solid fa-database",
       "iconColor": "text-blue-400",
-      "title": "MySQL"
+      "title": "MySQL",
+      "description": "ฝึกจัดการฐานข้อมูลระดับมืออาชีพและการทำระบบ"
     },
     {
       "icon": "fa-brands fa-docker",
       "iconColor": "text-cyan-400",
-      "title": "Docker Infrastructure"
+      "title": "Docker",
+      "description": "จัดการอินฟราสตรัคเจอร์และ Containerization เหมือนผู้เชี่ยวชาญ"
     },
     {
       "icon": "fa-brands fa-js",
       "iconColor": "text-yellow-400",
-      "title": "Interactive Web"
+      "title": "JavaScript",
+      "description": "สร้างเว็บแอปพลิเคชันเชิงโต้ตอบและไดนามิก"
     }
   ]
 }

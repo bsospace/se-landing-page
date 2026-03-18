@@ -4,13 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Software Engineering - BUU Informatics (Red Edition)</title>
+  <title>Software Engineering - BUU Informatics</title>
   <link rel="icon" type="image/svg+xml" href="./logo-se.jpg">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./style.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Montserrat:wght@700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </noscript>
   <style>
     body {
       font-family: 'Sarabun', sans-serif;
@@ -22,41 +28,472 @@
     }
 
     .glass {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 2px solid #ef4444;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(239, 68, 68, 0.2);
     }
 
     .hero-gradient {
-      background: linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%);
+      background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);
+      position: relative;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-gradient {
+        position: relative;
+        overflow: visible;
+      }
+    }
+
+    #hero-carousel-image {
+      animation: carousel-fade 0.6s ease-in-out;
+    }
+
+    @keyframes carousel-fade {
+      from {
+        opacity: 0.7;
+      }
+      to {
+        opacity: 0.9;
+      }
+    }
+
+    .portal-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .portal-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.2);
+      box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.25);
       border-color: #ef4444;
     }
 
     .tech-badge {
-      background: rgba(239, 68, 68, 0.1);
-      color: #b91c1c;
-      padding: 4px 12px;
+      padding: 8px 16px;
       border-radius: 99px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      cursor: default;
+      border: 2px solid currentColor;
+      background: transparent;
+    }
+
+    .tech-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -4px rgba(59, 130, 246, 0.3);
+    }
+
+    .tech-badge-category {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 8px;
+      opacity: 0.8;
+    }
+
+    .tech-highlight {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+      padding: 24px;
+      border-radius: 16px;
+      text-align: center;
+      border: 2px solid rgba(239, 68, 68, 0.3);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+    }
+
+    .tech-highlight::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(239, 68, 68, 0.15) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .tech-highlight:hover {
+      border-color: rgba(239, 68, 68, 0.6);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 0 30px rgba(239, 68, 68, 0.2),
+        0 20px 40px -10px rgba(0, 0, 0, 0.3),
+        inset 0 0 60px rgba(239, 68, 68, 0.05);
+    }
+
+    .tech-highlight:hover::before {
+      opacity: 1;
+    }
+
+    .tech-highlight-icon {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      margin-bottom: 12px;
+    }
+
+    .tech-highlight:hover .tech-highlight-icon {
+      transform: scale(1.15) rotateZ(5deg);
+      filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.4));
+    }
+
+    .tech-highlight-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .tech-highlight-description {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.5;
+      transition: color 0.3s ease;
+    }
+
+    .tech-highlight:hover .tech-highlight-description {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-100 {
+      transition-delay: 100ms;
+    }
+
+    .reveal-delay-200 {
+      transition-delay: 200ms;
+    }
+
+    .reveal-delay-300 {
+      transition-delay: 300ms;
     }
 
     .hero-readable {
-      text-shadow: 0 2px 14px rgba(2, 6, 23, 0.35);
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-cta-primary {
+      transform: scale(1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .hero-cta-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .hero-cta-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 20px 40px -10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(220, 38, 38, 0.2) !important;
+    }
+
+    .hero-cta-primary:hover::before {
+      opacity: 1;
+    }
+
+    .hero-cta-secondary {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero-cta-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.2) !important;
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
     }
 
     .timeline-description {
-      text-indent: 1.5rem;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       line-clamp: 7;
       -webkit-line-clamp: 7;
       overflow: hidden;
+    }
+
+    .timeline-gallery {
+      margin-inline: -0.25rem;
+      overflow: visible;
+      padding: 0.4rem 0.25rem;
+    }
+
+    .timeline-photo {
+      border: 3px solid #ffffff;
+      box-shadow: 0 14px 28px -14px rgba(15, 23, 42, 0.45);
+      transform-origin: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      z-index: 1;
+      position: relative;
+    }
+
+    .timeline-photo:hover {
+      transform: translateY(-2px) rotate(0deg) scale(1.02);
+      box-shadow: 0 18px 30px -16px rgba(15, 23, 42, 0.55);
+      z-index: 3;
+    }
+
+    .timeline-photo-main {
+      transform: rotate(-2.2deg);
+      margin-left: -0.3rem;
+      margin-right: 0.55rem;
+    }
+
+    .timeline-photo-left {
+      transform: rotate(-4deg) translateY(0.25rem);
+      margin-right: -0.2rem;
+    }
+
+    .timeline-photo-right {
+      transform: rotate(3.5deg) translateY(-0.2rem);
+      margin-left: -0.2rem;
+    }
+
+    .timeline-photo-top {
+      transform: rotate(-2deg);
+      margin-right: 0.35rem;
+    }
+
+    .timeline-photo-bottom-left {
+      transform: rotate(-4.5deg);
+      margin-right: -0.15rem;
+    }
+
+    .timeline-photo-bottom-right {
+      transform: rotate(4deg);
+      margin-left: -0.15rem;
+    }
+
+    @media (min-width: 768px) {
+      .timeline-gallery {
+        margin-right: -0.75rem;
+        margin-left: -0.15rem;
+      }
+    }
+
+    #timeline-viewer {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease;
+    }
+
+    #timeline-viewer.viewer-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #timeline-viewer-backdrop {
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+
+    #timeline-viewer.viewer-open #timeline-viewer-backdrop {
+      opacity: 1;
+    }
+
+    #timeline-viewer-panel {
+      transform-origin: center;
+      transition: transform 0.34s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.24s ease;
+      will-change: transform, opacity;
+    }
+
+    .blog-markdown {
+      color: #334155;
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .blog-markdown h2,
+    .blog-markdown h3,
+    .blog-markdown h4 {
+      color: #0f172a;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-top: 1.8rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .blog-markdown h2:first-child,
+    .blog-markdown h3:first-child,
+    .blog-markdown h4:first-child {
+      margin-top: 0;
+    }
+
+    .blog-markdown h2 {
+      font-size: 1.7rem;
+    }
+
+    .blog-markdown h3 {
+      font-size: 1.35rem;
+    }
+
+    .blog-markdown h4 {
+      font-size: 1.15rem;
+    }
+
+    .blog-markdown p {
+      margin: 0.75rem 0;
+    }
+
+    .blog-markdown ul {
+      list-style: disc;
+      padding-left: 1.4rem;
+      margin: 0.7rem 0 1rem;
+    }
+
+    .blog-markdown li {
+      margin: 0.2rem 0;
+      padding-left: 0.2rem;
+    }
+
+    .blog-markdown a {
+      color: #dc2626;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+
+    .blog-markdown strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .blog-markdown code {
+      font-size: 0.92em;
+      background: #f1f5f9;
+      color: #b91c1c;
+      border-radius: 0.4rem;
+      padding: 0.1rem 0.4rem;
+    }
+
+    .blog-markdown img {
+      width: 100%;
+      max-height: 26rem;
+      object-fit: cover;
+      border-radius: 0.9rem;
+      margin: 1rem 0;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+    }
+
+    .blog-markdown figure {
+      margin: 1rem 0;
+    }
+
+    .blog-markdown figcaption {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-top: -0.4rem;
+    }
+
+    .blog-markdown blockquote {
+      border-left: 4px solid #f87171;
+      background: #fff1f2;
+      padding: 0.65rem 0.9rem;
+      margin: 1rem 0;
+      border-radius: 0.5rem;
+      color: #334155;
+    }
+
+    #blog-modal {
+      padding: 0;
+    }
+
+    #blog-modal-content {
+      width: 100vw;
+      height: 100dvh;
+      max-width: none;
+      max-height: none;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    #blog-modal [data-blog-scroll] {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .partners-marquee {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    .partners-track {
+      display: flex;
+      align-items: stretch;
+      gap: 1.25rem;
+      width: max-content;
+      animation: partners-marquee-scroll 100s linear infinite;
+      padding-block: 0.5rem;
+    }
+
+    .partners-marquee:hover .partners-track {
+      animation-play-state: paused;
+    }
+
+    .partner-card {
+      width: 170px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .partner-logo-shell {
+      height: 84px;
+      width: 170px;
+      border-radius: 0.85rem;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0.5rem;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+    }
+
+    .partner-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #64748b;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    @keyframes partners-marquee-scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
     }
   </style>
 </head>
@@ -68,10 +505,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="flex h-20 items-center justify-between">
         <!-- Logo Section -->
-        <div class="flex-1 flex items-center">
+        <div class="flex-1 flex items-center" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="cursor: pointer;">
           <div class="flex items-center space-x-3">
             <img src="logo-se.jpg" alt="SE Logo" class="h-12 w-auto"
-              onerror="this.src='https://via.placeholder.com/50/ef4444/ffffff?text=SE'">
+              onerror="this.src='https://placehold.co/600x600?text=SE'">
             <div>
               <span class="font-montserrat font-extrabold text-2xl tracking-tighter text-red-600 block leading-none">SE
                 BUU</span>
@@ -81,7 +518,7 @@
         </div>
 
         <!-- Centered Navigation -->
-        <div class="hidden md:flex space-x-8 font-bold text-sm uppercase tracking-wide justify-center">
+        <div class="hidden lg:flex space-x-8 font-bold text-sm uppercase tracking-wide justify-center">
           <a href="#facebook-posts" class="hover:text-red-600 transition">ข่าวสาร</a>
           <a href="#admission" class="hover:text-red-600 transition">การรับสมัคร</a>
           <a href="#timeline" class="hover:text-red-600 transition">Timeline</a>
@@ -91,7 +528,7 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" type="button" class="md:hidden text-slate-700 hover:text-red-600 transition p-2"
+        <button id="mobile-menu-button" type="button" class="lg:hidden text-slate-700 hover:text-red-600 transition p-2"
           aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
           <i class="fa-solid fa-bars text-xl"></i>
         </button>
@@ -99,8 +536,9 @@
       </div>
 
       <!-- Mobile Navigation -->
-      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 px-2 sm:px-6 lg:px-8 pt-2">
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-lg p-4 flex flex-col gap-2 font-bold text-sm uppercase tracking-wide">
+      <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 right-0 px-2 sm:px-6 lg:px-8 pt-2">
+        <div
+          class="bg-white rounded-2xl border border-slate-200 shadow-lg p-4 flex flex-col gap-2 font-bold text-sm uppercase tracking-wide">
           <a href="#facebook-posts" class="hover:text-red-600 transition py-2">ข่าวสาร</a>
           <a href="#admission" class="hover:text-red-600 transition py-2">การรับสมัคร</a>
           <a href="#timeline" class="hover:text-red-600 transition py-2">Timeline</a>
@@ -143,7 +581,7 @@
           </a>
           <a href="#portal"
             class="bg-red-600 hover:bg-red-500 px-10 py-4 rounded-xl font-bold transition shadow-xl shadow-red-900/40 text-lg">
-            เข้าใช้งานระบบ Portal
+            สำหรับนิสิต
           </a>
         </div>
       </div>
@@ -174,10 +612,26 @@
   </section>
 
   <!-- Unique Selling Points -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-gradient-to-b from-slate-900 via-slate-800 to-white">
     <div class="max-w-7xl mx-auto px-4">
-      <div id="usp-grid" class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div id="usp-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- USP cards will be injected here via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners & CWIE Section -->
+  <section id="partners" class="py-20 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-10 px-4">
+        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest reveal">
+          เครือข่ายองค์กรพันธมิตรและสถานประกอบการ (CWIE Partners)
+        </h3>
+      </div>
+      <div class="partners-marquee reveal reveal-delay-200" aria-label="CWIE Partners logos scrolling list">
+        <div id="partners-grid" class="partners-track">
+          <!-- Partners will be injected here via JavaScript -->
+        </div>
       </div>
     </div>
   </section>
@@ -185,11 +639,13 @@
   <!-- Admission Section -->
   <section id="admission" class="scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 py-20 bg-slate-50">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-slate-900">Admission <span class="text-red-600">TCAS</span></h2>
-        <p class="text-slate-600 mt-4">โอกาสในการเข้าศึกษาต่อในหลักสูตรวิศวกรรมซอฟต์แวร์</p>
+      <div class="text-center mb-20 px-4">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight reveal leading-tight">
+          พร้อมที่จะมาเป็นครอบครัว <br class="md:hidden" /><span class="text-red-600">SE BUU</span> หรือยัง?</h2>
+        <p class="text-slate-500 mt-6 text-xl reveal reveal-delay-100 font-medium">เตรียมตัวให้พร้อม!
+          ส่องเส้นทางการสมัครและรอบการคัดเลือกล่าสุด (TCAS)</p>
       </div>
-      <div id="admission-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div id="admission-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Admission cards will be injected here via JavaScript -->
       </div>
       <div id="admission-view-more" class="mt-8 text-center">
@@ -198,12 +654,64 @@
     </div>
   </section>
 
+  <!-- มกุล (Cluster) Section -->
+  <section id="makul" class="py-24 bg-slate-900 border-t-4 border-red-600 text-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid-makul" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-makul)" />
+      </svg>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-10 reveal reveal-delay-100">
+        "มกุล (Cluster)" — <span class="text-red-500">More than a Team</span>
+      </h2>
+      <p class="text-slate-300 text-xl max-w-4xl mx-auto leading-relaxed reveal reveal-delay-200">
+        เพื่อนร่วมชั้นเรียนหาได้ทั่วไป แต่เราสร้าง <strong>"ทีมร่วมรบ"</strong> <br>
+        มกุล คือระบบกลุ่มย่อยที่จับคู่ให้นิสิตได้สร้างสัมพันธ์ เรียนรู้การทำงานร่วมกัน 
+        และฝึกความเป็นผู้นำ/ผู้ตาม (PLO8) ตั้งแต่วันแรกที่เข้าเรียน เพื่อให้ทุกคนมีเพื่อนร่วมทางที่คอยสนับสนุนและผลักดันกันตลอด 4 ปี
+      </p>
+      
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto reveal reveal-delay-300">
+        <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md hover:bg-white/10 transition duration-300">
+          <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fa-solid fa-handshake-angle text-3xl text-blue-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white">ปรับตัวง่าย ไม่ทิ้งใครไว้หลัง</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">มีพี่ๆ และเพื่อนคอยพยุง แชร์เทคนิคการเรียน ทำให้ชีวิตเฟรชชี่ราบรื่นและอุ่นใจ</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md hover:bg-white/10 transition duration-300">
+          <div class="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fa-solid fa-people-arrows text-3xl text-emerald-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white">ฝึก Soft Skills ของจริง</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">การทำงานเป็นทีมคือปัจจัยหลักในสาย Software Process ระบบนี้ปูพื้นฐานให้คุณทันที</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md hover:bg-white/10 transition duration-300">
+          <div class="w-14 h-14 bg-pink-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fa-solid fa-gamepad text-3xl text-pink-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white">สนุกกับกิจกรรมและทุนการศึกษา</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">มีกิจกรรมหลากหลายและทุนการศึกษาให้ได้รับการสนับสนุนประสบการณ์ตลอดการศึกษา</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Timeline Section -->
   <section id="timeline" class="py-20 bg-white scroll-mt-20">
     <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-14">
-        <h2 class="text-4xl font-bold text-slate-900">Study <span class="text-red-600">Timeline</span></h2>
-        <p class="text-slate-600 mt-4">ภาพรวมการเรียนรู้ตลอด 4 ปีในหลักสูตรวิศวกรรมซอฟต์แวร์</p>
+      <div class="text-center mb-20 px-4">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight reveal leading-tight">สงสัยไหม...
+          <br />
+          <br />
+          <span class="text-red-600">ตลอด 4 ปีที่ SE</span> เรียนอะไรบ้าง?</h2>
+        <p class="text-slate-500 mt-6 text-xl reveal reveal-delay-100 font-medium">Roadmap
+          การเรียนรู้ที่จะเปลี่ยนคุณให้เป็น Software Engineer ตัวจริง</p>
       </div>
 
       <div id="timeline-list" class="space-y-8">
@@ -215,18 +723,18 @@
   <!-- Tech Stack Section -->
   <section class="py-20 bg-slate-900 text-white">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-1/2">
-          <h2 class="text-3xl font-bold mb-6">Development <span class="text-red-500">Tech Stack</span></h2>
-          <p class="text-slate-400 mb-8 leading-relaxed">
-            หลักสูตรเน้นการใช้งาน Framework และเครื่องมือที่เป็นมาตรฐานในตลาดงานปัจจุบัน
-            เพื่อให้นิสิตพร้อมเริ่มงานได้ทันทีหลังจบการศึกษา
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 w-full">
+          <h2 class="text-3xl font-bold mb-6 tracking-tight">เครื่องมือ <span
+              class="text-red-500">ภาษา และเนื้อหาที่เราจะได้เรียน</span></h2>
+          <p class="text-slate-400 mb-8 leading-relaxed text-lg">
+              ไม่ใช่แค่ทฤษฎี แต่เราจะได้ลงมือใช้เครื่องมือจริงที่ใช้ในอุตสาหกรรม
           </p>
           <div id="tech-badges" class="flex flex-wrap gap-3">
             <!-- Tech badges will be injected here via JavaScript -->
           </div>
         </div>
-        <div id="tech-highlights" class="md:w-1/2 grid grid-cols-2 gap-4">
+        <div id="tech-highlights" class="lg:w-1/2 w-full grid grid-cols-2 gap-4">
           <!-- Tech highlights will be injected here via JavaScript -->
         </div>
       </div>
@@ -237,11 +745,12 @@
   <section id="facebook-posts" class="py-20 bg-slate-50 scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-slate-900">Latest <span class="text-red-600">Facebook Posts</span></h2>
-        <p class="text-slate-600 mt-4">อัปเดตข่าวสารล่าสุดจากเพจ Software Engineering BUU</p>
+        <h2 class="text-4xl font-bold text-slate-900 tracking-tight">อัปเดต <span
+            class="text-red-600">ข่าวสารจากสาขา</span></h2>
+        <p class="text-slate-600 mt-4">ข่าวสารล่าสุดจากเพจวิศวกรรมซอฟต์แวร์ บูรพา</p>
       </div>
 
-      <div class="bg-white rounded-3xl p-5 md:p-7 border border-slate-200 shadow-sm">
+      <div class="bg-white rounded-3xl p-5 px-0 md:p-7 border border-slate-200 shadow-sm">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl">
             <i class="fa-brands fa-facebook-f"></i>
@@ -249,27 +758,22 @@
           <p class="font-bold text-slate-900 leading-tight">Facebook</p>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100">
-          <iframe
-            title="Software Engineering BUU Facebook Timeline"
+        <div class="relative md:rounded-2xl overflow-hidden border md:border-slate-200 md:bg-slate-100">
+          <iframe title="Software Engineering BUU Facebook Timeline"
             src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSoftEngBUU&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
-            width="500"
-            height="700"
-            class="w-full max-w-[500px] h-[520px] sm:h-[620px] md:h-[700px] mx-auto block"
-            style="border:none;overflow:hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
+            width="500" height="700" class="w-full max-w-[500px] h-[520px] sm:h-[620px] md:h-[700px] mx-auto block"
+            style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
           </iframe>
           <div class="absolute inset-0" aria-hidden="true"></div>
-          <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" aria-hidden="true"></div>
+          <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" aria-hidden="true">
+          </div>
         </div>
 
         <div class="mt-6 text-center">
           <a href="https://www.facebook.com/SoftEngBUU" target="_blank"
             class="inline-flex items-center justify-center bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg shadow-red-900/20">
-            View More on Facebook <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+            ดูเพิ่มเติมบน Facebook <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
           </a>
         </div>
       </div>
@@ -279,9 +783,11 @@
   <!-- Portal Section -->
   <section id="portal" class="bg-white scroll-mt-20">
     <div class="max-w-7xl mx-auto py-24 px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-slate-900">Information <span class="text-red-600">Portal</span></h2>
-        <p class="text-slate-600 mt-4">เข้าถึงระบบจัดการการเรียนการสอนและบริการต่างๆ ของสาขา</p>
+      <div class="text-center mb-20 px-4">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight reveal leading-tight">
+          รวมเครื่องมือสำหรับ <br class="md:hidden" /><span class="text-red-600">นิสิตปัจจุบัน</span></h2>
+        <p class="text-slate-500 mt-6 text-xl reveal reveal-delay-100 font-medium">
+          แหล่งรวมระบบสำคัญและเครื่องมืออำนวยความสะดวก</p>
       </div>
 
       <!-- Dynamic Portal Grid -->
@@ -294,12 +800,13 @@
   <!-- Future Work Section -->
   <section id="future-work" class="py-20 bg-slate-50 scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-slate-900">Future <span class="text-red-600">Work</span></h2>
-        <p class="text-slate-600 mt-4">แนวทางการพัฒนาหลักสูตรและระบบสนับสนุนในระยะถัดไป</p>
+      <div class="text-center mb-20 px-4">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight reveal leading-tight">จบไปแล้ว...
+          <br /><span class="text-red-600">อนาคตของคุณ</span> จะไปสุดที่ไหน?</h2>
+        <p class="text-slate-500 mt-6 text-xl reveal reveal-delay-100 font-medium">ตัวอย่างอาชีพที่เปิดโอกาสให้กับนิสิต SE</p>
       </div>
 
-      <div id="future-work-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div id="future-work-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Future work items will be injected here via JavaScript -->
       </div>
     </div>
@@ -309,8 +816,9 @@
   <section id="faq" class="py-20 bg-white scroll-mt-20">
     <div class="max-w-5xl mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-slate-900">Frequently Asked <span class="text-red-600">Questions</span></h2>
-        <p class="text-slate-600 mt-4">คำถามที่พบบ่อยเกี่ยวกับหลักสูตรและการสมัครเรียน</p>
+        <h2 class="text-4xl font-bold text-slate-900 tracking-tight">คำถาม <span class="text-red-600">ที่พบบ่อย
+            (FAQ)</span></h2>
+        <p class="text-slate-600 mt-4 text-lg">รวบรวมทุกข้อสงสัยให้ฉงนเกี่ยวกับการเรียน SE BUU</p>
       </div>
 
       <div id="faq-list" class="space-y-4">
@@ -321,9 +829,10 @@
 
   <div id="timeline-viewer" class="fixed inset-0 z-[80] hidden items-center justify-center p-4">
     <div id="timeline-viewer-backdrop" class="absolute inset-0 bg-black/75"></div>
-    <div class="relative w-full max-w-5xl z-10">
+    <div id="timeline-viewer-panel" class="relative w-full max-w-5xl z-10">
       <button id="timeline-viewer-close" type="button"
-        class="absolute -top-10 right-0 text-white hover:text-red-300 transition text-2xl" aria-label="Close image viewer">
+        class="absolute -top-10 right-0 text-white hover:text-red-300 transition text-2xl"
+        aria-label="Close image viewer">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
@@ -349,16 +858,59 @@
     </div>
   </div>
 
+  <!-- Blog Modal for Timeline Details -->
+  <div id="blog-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+    <div id="blog-modal-backdrop" class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity opacity-0"></div>
+    <div id="blog-modal-content" class="bg-white w-screen h-screen max-w-none max-h-none rounded-none shadow-2xl overflow-hidden relative z-10 flex flex-col transform scale-95 opacity-0 transition-all duration-300">
+      <div class="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto h-16 px-4 md:px-8 flex items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <button id="blog-modal-prev-year" type="button"
+              class="h-10 px-4 rounded-full border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition disabled:opacity-40 disabled:cursor-not-allowed"
+              aria-label="Read previous year">
+              <i class="fa-solid fa-arrow-left mr-2"></i> ปีก่อนหน้า
+            </button>
+            <button id="blog-modal-next-year" type="button"
+              class="h-10 px-4 rounded-full border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition disabled:opacity-40 disabled:cursor-not-allowed"
+              aria-label="Read next year">
+              ปีถัดไป <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+
+          <button id="blog-modal-close" type="button"
+            class="w-10 h-10 bg-slate-100 hover:bg-red-50 text-slate-500 hover:text-red-500 rounded-full flex items-center justify-center transition focus:outline-none"
+            aria-label="Close modal">
+            <i class="fa-solid fa-xmark text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex-1 overflow-y-auto" data-blog-scroll>
+        <div class="max-w-4xl mx-auto px-6 py-8 md:px-10 md:py-12">
+          <div class="inline-block bg-red-50 text-red-700 ring-1 ring-inset ring-red-600/20 text-sm font-bold px-4 py-1.5 rounded-full mb-6" id="blog-modal-eyebrow">
+          </div>
+          <div id="blog-modal-body" class="blog-markdown max-w-none">
+            <!-- Dynamic details injected here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-slate-950 text-slate-400 py-8 px-4 border-t-4 border-red-600">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-      <div>
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div class="sm:col-span-2 lg:col-span-1">
         <div class="flex items-center space-x-3 mb-6">
-          <img src="logo-se.jpg" alt="Logo" class="h-10 grayscale brightness-200">
+          <img src="logo-se.jpg" alt="Logo" class="h-10 grayscale brightness-200" loading="lazy">
           <span class="text-white font-montserrat font-extrabold text-2xl">SE BUU</span>
         </div>
         <p class="text-sm leading-relaxed">
           สร้างวิศวกรซอฟต์แวร์รุ่นใหม่ที่ขับเคลื่อนโลกด้วยนวัตกรรมและจริยธรรม ภายใต้คณะสารสนเทศศาสตร์ มหาวิทยาลัยบูรพา
+        </p>
+        <br />
+        <p class="text-sm leading-relaxed">
+          "เรียนหนัก นอนดึก ความถึกต้องเรา วันหยุดไม่ได้หยุด วันลาไม่ได้ลา กลางวันนั่งหาว กลางคืนเฮฮา"
         </p>
       </div>
       <div>
@@ -374,14 +926,26 @@
         </div>
       </div>
     </div>
-    <div
+    <div id="footer-easter-trigger"
       class="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-900 text-center text-[10px] uppercase tracking-widest">
       &copy; 2010-<span id="current-year"></span> Software Engineering, Burapha University. All rights reserved.
-      <br>
-      <br>
-      " เรียนหนัก นอนดึก ความถึกต้องเรา วันหยุดไม่ได้หยุด วันลาไม่ได้ลา กลางวันนั่งหาว กลางคืนเฮฮา "
     </div>
   </footer>
+
+  <div id="easter-egg-modal" class="fixed inset-0 z-[110] hidden items-center justify-center p-4">
+    <div id="easter-egg-backdrop" class="absolute inset-0 bg-slate-950/75 backdrop-blur-sm"></div>
+    <div class="relative z-10 w-fit max-w-[90vw] rounded-3xl bg-gradient-to-br from-white to-slate-50 border border-slate-200/80 shadow-2xl p-7 text-center transform transition-all duration-200 scale-95 opacity-0" id="easter-egg-content">
+      <p class="text-2xl md:text-3xl font-extrabold text-slate-900 whitespace-nowrap">This was made by SE #12.</p>
+      <a href="https://github.com/bsospace/se-landing-page" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-2xl">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <br />
+      <button id="easter-egg-close" type="button"
+        class="mt-6 inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition">
+        <i class="fa-solid fa-xmark mr-2"></i> Close
+      </button>
+    </div>
+  </div>
 
   <!-- Dynamic Rendering Script -->
   <script>
@@ -401,8 +965,8 @@
           <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl shadow-inner">
             <i class="${item.icon}"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">${item.title}</h3>
-          <p class="text-slate-500">${item.description}</p>
+          <h3 class="text-xl font-bold mb-3 text-slate-900">${item.title}</h3>
+          <p class="text-slate-600">${item.description}</p>
         </div>
       `).join('');
     }
@@ -448,13 +1012,13 @@
             : 'bg-slate-200 text-slate-600';
 
         return `
-          <div class="bg-white p-7 rounded-2xl border-t-4 ${borderClass} shadow-sm h-full">
-            <span class="${roundClass} font-bold text-sm">${item.round}</span>
-            <div class="mt-3 mb-2">
-              <span class="${statusClass} text-[11px] font-bold px-3 py-1 rounded-full">${statusInfo.statusLabel}</span>
+          <div class="bg-white p-7 rounded-3xl border-t-4 ${borderClass} shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full">
+            <span class="${roundClass} font-bold text-sm px-3 py-1 bg-slate-50 rounded-lg inline-block">${item.round}</span>
+            <div class="mt-4 mb-3">
+              <span class="${statusClass} text-xs font-bold px-3 py-1.5 rounded-full ring-1 ring-inset ${statusInfo.status === 'open' ? 'ring-green-500/20' : statusInfo.status === 'upcoming' ? 'ring-amber-500/20' : 'ring-slate-500/20'}">${statusInfo.statusLabel}</span>
             </div>
-            <h4 class="font-bold text-lg mt-1">${item.title}</h4>
-            <p class="text-slate-500 text-xs mt-2">${item.description}</p>
+            <h4 class="font-bold text-xl mt-2 tracking-tight text-slate-800">${item.title}</h4>
+            <p class="text-slate-500 text-sm mt-3 leading-relaxed">${item.description}</p>
             ${period}
           </div>
         `;
@@ -481,17 +1045,43 @@
 
       if (badgesContainer) {
         const badges = techStack.badges ?? [];
-        badgesContainer.innerHTML = badges.map(label => `
-          <span class="tech-badge bg-red-600 text-white">${label}</span>
-        `).join('');
+        
+        // Handle both array of strings (legacy) and array of category objects (new format)
+        let badgesHtml = '';
+        
+        if (Array.isArray(badges) && badges.length > 0) {
+          if (typeof badges[0] === 'string') {
+            // Legacy format: array of strings
+            badgesHtml = badges.map(label => `
+              <span class="tech-badge ${badges[0] ? 'bg-blue-100 text-blue-900 border border-blue-300' : ''}">${label}</span>
+            `).join('');
+          } else {
+            // New format: array of category objects
+            badgesHtml = badges.map(categoryObj => `
+              <div class="mb-6">
+                <span class="tech-badge-category text-white/60">${categoryObj.category}</span>
+                <div class="flex flex-wrap gap-2">
+                  ${(categoryObj.items ?? []).map(item => `
+                    <span class="tech-badge ${categoryObj.color}">${item}</span>
+                  `).join('')}
+                </div>
+              </div>
+            `).join('');
+          }
+        }
+        
+        badgesContainer.innerHTML = badgesHtml;
       }
 
       if (highlightsContainer) {
         const highlights = techStack.highlights ?? [];
         highlightsContainer.innerHTML = highlights.map(item => `
-          <div class="group bg-white/5 p-6 rounded-xl border border-white/10 text-center">
-            <i class="${item.icon} text-4xl ${item.iconColor} mb-4 grayscale opacity-80 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100"></i>
-            <p class="text-sm font-bold">${item.title}</p>
+          <div class="tech-highlight">
+            <div class="tech-highlight-icon">
+              <i class="${item.icon} text-4xl ${item.iconColor}"></i>
+            </div>
+            <p class="tech-highlight-title">${item.title}</p>
+            <p class="tech-highlight-description">${item.description || ''}</p>
           </div>
         `).join('');
       }
@@ -502,13 +1092,15 @@
       if (!container) return;
 
       container.innerHTML = items.map(item => `
-        <a href="${item.url}" target="_blank" class="portal-card bg-slate-50 p-8 rounded-3xl border border-transparent transition-all duration-300 group flex flex-col h-full">
-          <div class="${item.themeColor} text-white w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-lg ${item.shadow} group-hover:scale-110 transition shrink-0 mx-auto">
-            <i class="${item.icon} text-2xl"></i>
+        <a href="${item.url}" target="_blank" class="portal-card bg-white shadow-sm hover:shadow-xl p-6 md:p-7 rounded-3xl border border-slate-100 transition-all duration-300 group flex items-start gap-5 h-full">
+          <div class="${item.themeColor} text-white w-14 h-14 rounded-2xl flex items-center justify-center shadow-md ${item.shadow} group-hover:scale-105 transition shrink-0 ring-4 ring-red-50">
+            <i class="${item.icon} text-xl"></i>
           </div>
-          <h4 class="font-bold text-xl text-slate-800">${item.title}</h4>
-          <p class="text-slate-500 text-sm mt-3 flex-grow">${item.description}</p>
-          <div class="mt-6 text-red-600 font-bold text-sm">เข้าใช้งาน <i class="fa-solid fa-chevron-right ml-1"></i></div>
+          <div class="flex flex-col flex-grow min-h-[4rem]">
+            <h4 class="font-bold text-lg text-slate-800 tracking-tight">${item.title}</h4>
+            <p class="text-slate-500 mt-1.5 leading-relaxed text-sm line-clamp-2">${item.description}</p>
+            <div class="mt-4 text-red-600 font-bold text-sm group-hover:translate-x-1 transition-transform">เข้าใช้งาน <i class="fa-solid fa-arrow-right ml-1"></i></div>
+          </div>
         </a>
       `).join('');
     }
@@ -564,6 +1156,159 @@
       `).join('');
     }
 
+    function escapeHtml(value = '') {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function parseInlineMarkdown(text = '') {
+      return escapeHtml(text)
+        .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/`(.+?)`/g, '<code>$1</code>');
+    }
+
+    function markdownToHtml(markdown = '') {
+      const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+      const blocks = [];
+      let paragraphBuffer = [];
+      let listBuffer = [];
+
+      const flushParagraph = () => {
+        if (paragraphBuffer.length === 0) return;
+        blocks.push(`<p>${parseInlineMarkdown(paragraphBuffer.join(' '))}</p>`);
+        paragraphBuffer = [];
+      };
+
+      const flushList = () => {
+        if (listBuffer.length === 0) return;
+        blocks.push(`<ul>${listBuffer.map(item => `<li>${parseInlineMarkdown(item)}</li>`).join('')}</ul>`);
+        listBuffer = [];
+      };
+
+      lines.forEach((line) => {
+        const trimmed = line.trim();
+
+        if (!trimmed) {
+          flushParagraph();
+          flushList();
+          return;
+        }
+
+        const headingMatch = trimmed.match(/^(#{1,3})\s+(.+)$/);
+        if (headingMatch) {
+          flushParagraph();
+          flushList();
+          const level = headingMatch[1].length;
+          const headingTag = level === 1 ? 'h2' : level === 2 ? 'h3' : 'h4';
+          blocks.push(`<${headingTag}>${parseInlineMarkdown(headingMatch[2])}</${headingTag}>`);
+          return;
+        }
+
+        const imageMatch = trimmed.match(/^!\[([^\]]*)\]\(([^)\s]+)\)$/);
+        if (imageMatch) {
+          flushParagraph();
+          flushList();
+          const imageAlt = parseInlineMarkdown(imageMatch[1] || '');
+          const imageSrc = escapeHtml(imageMatch[2]);
+          blocks.push(`<figure><img src="${imageSrc}" alt="${imageAlt}" loading="lazy">${imageAlt ? `<figcaption>${imageAlt}</figcaption>` : ''}</figure>`);
+          return;
+        }
+
+        const quoteMatch = trimmed.match(/^>\s+(.+)$/);
+        if (quoteMatch) {
+          flushParagraph();
+          flushList();
+          blocks.push(`<blockquote>${parseInlineMarkdown(quoteMatch[1])}</blockquote>`);
+          return;
+        }
+
+        const listMatch = trimmed.match(/^-\s+(.+)$/);
+        if (listMatch) {
+          flushParagraph();
+          listBuffer.push(listMatch[1]);
+          return;
+        }
+
+        flushList();
+        paragraphBuffer.push(trimmed);
+      });
+
+      flushParagraph();
+      flushList();
+
+      return blocks.join('');
+    }
+
+    function markdownToPlainText(markdown = '') {
+      return markdown
+        .replace(/\r\n/g, '\n')
+        .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '$1')
+        .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '$1')
+        .replace(/^#{1,6}\s+/gm, '')
+        .replace(/^>\s+/gm, '')
+        .replace(/^[-*]\s+/gm, '')
+        .replace(/\*\*(.+?)\*\*/g, '$1')
+        .replace(/\*(.+?)\*/g, '$1')
+        .replace(/`(.+?)`/g, '$1')
+        .replace(/\n{2,}/g, '\n')
+        .trim();
+    }
+
+    function buildTimelineExcerpt(markdown = '', maxLength = 240) {
+      const plainText = markdownToPlainText(markdown);
+      if (!plainText) {
+        return 'กำลังอัปเดตเนื้อหาสำหรับหัวข้อนี้';
+      }
+
+      if (plainText.length <= maxLength) {
+        return plainText;
+      }
+
+      return `${plainText.slice(0, maxLength).trimEnd()}...`;
+    }
+
+    async function fetchText(url) {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return await response.text();
+    }
+
+    async function hydrateTimelineFromMarkdown(items = []) {
+      const hydratedItems = await Promise.all(items.map(async (item) => {
+        if (!item || typeof item !== 'object') return item;
+
+        let markdownContent = '';
+        if (typeof item.content === 'string') {
+          markdownContent = item.content;
+        } else if (typeof item.contentFile === 'string' && item.contentFile.length > 0) {
+          try {
+            markdownContent = await fetchText(item.contentFile);
+          } catch (error) {
+            console.error('Error loading markdown:', item.contentFile, error);
+          }
+        }
+
+        const fallbackHtml = typeof item.modalDetails === 'string' ? item.modalDetails : '';
+        const modalDetails = markdownContent ? markdownToHtml(markdownContent) : fallbackHtml;
+
+        return {
+          ...item,
+          description: buildTimelineExcerpt(markdownContent || markdownToPlainText(fallbackHtml)),
+          modalDetails
+        };
+      }));
+
+      return hydratedItems;
+    }
+
     function normalizeTimelineImages(item = {}) {
       const imageList = Array.isArray(item.images) && item.images.length > 0
         ? item.images
@@ -584,29 +1329,33 @@
         .filter(Boolean);
     }
 
-    function renderTimeline(items = []) {
+    async function renderTimeline(items = []) {
       const container = document.getElementById('timeline-list');
       if (!container) return;
 
-      const timelineViewerData = items.map(item => {
+      const timelineItems = await hydrateTimelineFromMarkdown(items);
+
+      const timelineViewerData = timelineItems.map(item => {
         return {
           year: item.year,
           title: item.title,
-          images: normalizeTimelineImages(item)
+          images: normalizeTimelineImages(item),
+          modalDetails: item.modalDetails || ''
         };
       });
 
       container.dataset.timelineViewer = JSON.stringify(timelineViewerData);
 
-      container.innerHTML = items.map((item, yearIndex) => {
+      container.innerHTML = timelineItems.map((item, yearIndex) => {
         const images = normalizeTimelineImages(item);
 
-        const renderImageCard = (image, imageIndex, heightClass, extraOverlay = '') => `
+        const renderImageCard = (image, imageIndex, heightClass, variantClass = '', tiltDegrees = 0, extraOverlay = '') => `
           <button type="button"
-            class="relative w-full rounded-xl overflow-hidden border border-slate-200 bg-white hover:opacity-90 transition"
+            class="timeline-photo ${variantClass} relative w-full rounded-xl overflow-hidden bg-white hover:opacity-95 transition"
             data-timeline-open="true"
             data-year-index="${yearIndex}"
-            data-image-index="${imageIndex}">
+            data-image-index="${imageIndex}"
+            data-photo-tilt="${tiltDegrees}">
             <img src="${image.src}" alt="${image.alt}" class="w-full ${heightClass} object-cover" loading="lazy">
             ${extraOverlay}
           </button>
@@ -616,12 +1365,12 @@
         const hasImages = images.length > 0;
 
         if (images.length === 1) {
-          galleryMarkup = renderImageCard(images[0], 0, 'h-44');
+          galleryMarkup = renderImageCard(images[0], 0, 'h-44', 'timeline-photo-main', -2.2);
         } else if (images.length === 2) {
           galleryMarkup = `
             <div class="grid grid-cols-2 gap-2">
-              ${renderImageCard(images[0], 0, 'h-40')}
-              ${renderImageCard(images[1], 1, 'h-40')}
+              ${renderImageCard(images[0], 0, 'h-40', 'timeline-photo-left', -4)}
+              ${renderImageCard(images[1], 1, 'h-40', 'timeline-photo-right', 3.5)}
             </div>
           `;
         } else if (images.length >= 3) {
@@ -632,30 +1381,33 @@
 
           galleryMarkup = `
             <div class="space-y-2">
-              ${renderImageCard(images[0], 0, 'h-36')}
+              ${renderImageCard(images[0], 0, 'h-36', 'timeline-photo-top', -2)}
               <div class="grid grid-cols-2 gap-2">
-                ${renderImageCard(images[1], 1, 'h-28')}
-                ${renderImageCard(images[2], 2, 'h-28', thirdOverlay)}
+                ${renderImageCard(images[1], 1, 'h-28', 'timeline-photo-bottom-left', -4.5)}
+                ${renderImageCard(images[2], 2, 'h-28', 'timeline-photo-bottom-right', 4, thirdOverlay)}
               </div>
             </div>
           `;
         }
 
         return `
-          <div class="relative pl-8 md:pl-10">
-            <div class="absolute left-3 md:left-4 top-0 h-full w-px bg-red-200"></div>
-            <div class="absolute left-0 md:left-1 top-2 w-6 h-6 rounded-full bg-red-600 border-4 border-white shadow"></div>
+          <div class="relative pl-8 md:pl-12">
+            <div class="absolute left-3 md:left-5 top-0 h-full w-px bg-gradient-to-b from-red-300 to-red-100"></div>
+            <div class="absolute left-0 md:left-2 top-2 w-7 h-7 rounded-full bg-red-600 border-4 border-white shadow-md ring-2 ring-red-100"></div>
 
-            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-7">
-              <div class="flex flex-wrap items-center gap-3 mb-3">
-                <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">${item.year}</span>
-                <h3 class="text-xl font-bold text-slate-900">${item.title}</h3>
+            <div class="bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:border-red-100 hover:-translate-y-1 transition-all duration-300 rounded-3xl p-6 md:p-8 cursor-pointer relative group" data-blog-open="true" data-year-index="${yearIndex}">
+              <div class="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 group-hover:text-red-500 group-hover:bg-red-50 transition-colors">
+                <i class="fa-solid fa-expand text-lg"></i>
+              </div>
+              <div class="flex flex-wrap items-center gap-3 mb-4 pr-12">
+                <span class="bg-red-50 text-red-700 ring-1 ring-inset ring-red-600/20 text-xs font-bold px-3 py-1 rounded-full shadow-sm">${item.year}</span>
+                <h3 class="text-2xl font-bold text-slate-800 tracking-tight">${item.title}</h3>
               </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-5 gap-5 items-start">
-                <p class="text-slate-600 leading-relaxed timeline-description ${hasImages ? 'md:col-span-3' : 'md:col-span-5'}">${item.description}</p>
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+                <div class="text-slate-600 leading-relaxed timeline-description ${hasImages ? 'md:col-span-3' : 'md:col-span-5'} pointer-events-none">${item.description}</div>
                 ${hasImages ? `
-                  <div class="md:col-span-2">
+                  <div class="md:col-span-2 timeline-gallery">
                     ${galleryMarkup}
                   </div>
                 ` : ''}
@@ -670,24 +1422,80 @@
       const container = document.getElementById('future-work-grid');
       if (!container) return;
 
-      container.innerHTML = items.map(item => `
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm h-full flex items-start gap-4">
-          <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl shrink-0">
+      const colors = [
+        'from-blue-50 to-blue-100 text-blue-600 ring-blue-50',
+        'from-emerald-50 to-emerald-100 text-emerald-600 ring-emerald-50',
+        'from-purple-50 to-purple-100 text-purple-600 ring-purple-50',
+        'from-amber-50 to-amber-100 text-amber-600 ring-amber-50',
+        'from-red-50 to-red-100 text-red-600 ring-red-50',
+        'from-cyan-50 to-cyan-100 text-cyan-600 ring-cyan-50',
+        'from-rose-50 to-rose-100 text-rose-600 ring-rose-50',
+        'from-indigo-50 to-indigo-100 text-indigo-600 ring-indigo-50',
+        'from-orange-50 to-orange-100 text-orange-600 ring-orange-50'
+      ];
+
+      container.innerHTML = items.map((item, index) => {
+        const colorClass = colors[index % colors.length];
+        return `
+        <div class="bg-white rounded-3xl p-7 border border-slate-100 shadow-md hover:shadow-2xl hover:border-slate-200 hover:-translate-y-2 transition-all duration-300 h-full flex items-start gap-5 group">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${colorClass} flex items-center justify-center text-2xl shrink-0 shadow-inner ring-4 group-hover:scale-110 transition-transform">
             <i class="${item.icon}" aria-hidden="true"></i>
           </div>
           <div>
-            <h3 class="text-xl font-bold text-slate-900">${item.title}</h3>
-            <p class="text-slate-600 mt-2 leading-relaxed">${item.description}</p>
+            <h3 class="text-xl font-bold text-slate-800 tracking-tight">${item.title}</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed text-sm">${item.description}</p>
           </div>
         </div>
-      `).join('');
+        `;
+      }).join('');
+    }
+
+    function renderPartners(items = []) {
+      const container = document.getElementById('partners-grid');
+      if (!container) return;
+
+      if (!Array.isArray(items) || items.length === 0) {
+        container.innerHTML = '';
+        return;
+      }
+
+      const renderPartnerCard = (item = {}) => {
+        const partnerName = escapeHtml(item.name || 'Partner');
+        const hasLogo = typeof item.logo === 'string' && item.logo.trim().length > 0;
+        const initials = partnerName
+          .split(' ')
+          .filter(Boolean)
+          .slice(0, 2)
+          .map(word => word[0]?.toUpperCase() || '')
+          .join('') || 'PT';
+
+        const logoMarkup = hasLogo
+          ? `<img src="${item.logo}" alt="${partnerName} logo" class="h-full w-full object-contain"
+                loading="lazy"
+                onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');">
+              <span class="hidden text-xs font-extrabold text-slate-400 tracking-wide">${initials}</span>`
+          : `<span class="text-xs font-extrabold text-slate-400 tracking-wide">${initials}</span>`;
+
+        return `
+          <div class="partner-card grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-105" title="${partnerName}">
+            <div class="partner-logo-shell">
+              ${logoMarkup}
+            </div>
+            <span class="partner-name">${partnerName}</span>
+          </div>
+        `;
+      };
+
+      const partnerCards = items.map(renderPartnerCard).join('');
+      container.innerHTML = `${partnerCards}${partnerCards}`;
+      container.setAttribute('aria-hidden', 'false');
     }
 
     async function renderDynamicContent() {
       const portalContainer = document.getElementById('portal-grid');
 
       try {
-        const [uspData, admissionData, timelineData, techStackData, portalData, quickLinksData, contactData, faqData, futureWorkData] = await Promise.all([
+        const [uspData, admissionData, timelineData, techStackData, portalData, quickLinksData, contactData, faqData, futureWorkData, partnersData] = await Promise.all([
           fetchJson('./data/usp.json'),
           fetchJson('./data/admission.json'),
           fetchJson('./data/timeline.json'),
@@ -697,17 +1505,19 @@
           fetchJson('./data/contact.json'),
           fetchJson('./data/faq.json'),
           fetchJson('./data/future-work.json'),
+          fetchJson('./data/partners.json'),
         ]);
 
         renderUniqueSellingPoints(uspData);
         renderAdmission(admissionData.rounds, admissionData.viewMore);
-        renderTimeline(timelineData);
+        await renderTimeline(timelineData);
         renderTechStack(techStackData);
         renderPortals(portalData);
         renderQuickLinks(quickLinksData);
         renderContactUs(contactData);
         renderFAQ(faqData);
         renderFutureWork(futureWorkData);
+        renderPartners(partnersData);
       } catch (error) {
         console.error('Error loading JSON:', error);
         if (portalContainer) {
@@ -757,12 +1567,20 @@
     }
 
     async function initHeroCarousel() {
+      // Desktop carousel elements
       const imageElement = document.getElementById('hero-carousel-image');
       const prevButton = document.getElementById('hero-carousel-prev');
       const nextButton = document.getElementById('hero-carousel-next');
       const dotsContainer = document.getElementById('hero-carousel-dots');
 
-      if (!imageElement || !prevButton || !nextButton || !dotsContainer) return;
+      // Mobile carousel elements
+      const imageMobileElement = document.getElementById('hero-carousel-image-mobile');
+      const prevButtonMobile = document.getElementById('hero-carousel-prev-mobile');
+      const nextButtonMobile = document.getElementById('hero-carousel-next-mobile');
+      const dotsContainerMobile = document.getElementById('hero-carousel-dots-mobile');
+
+      // Check if at least one carousel exists
+      if (!imageElement && !imageMobileElement) return;
 
       const heroImages = await loadHeroImages();
       if (heroImages.length === 0) return;
@@ -771,12 +1589,22 @@
       let timerId = null;
 
       const renderDots = () => {
-        dotsContainer.innerHTML = heroImages.map((_, index) => `
-          <button type="button"
-            class="hero-dot w-2.5 h-2.5 rounded-full transition ${index === currentIndex ? 'bg-white' : 'bg-white/50'}"
-            data-hero-index="${index}"
-            aria-label="Go to slide ${index + 1}"></button>
-        `).join('');
+        if (dotsContainer) {
+          dotsContainer.innerHTML = heroImages.map((_, index) => `
+            <button type="button"
+              class="hero-dot w-2.5 h-2.5 rounded-full transition ${index === currentIndex ? 'bg-white' : 'bg-white/50'}"
+              data-hero-index="${index}"
+              aria-label="Go to slide ${index + 1}"></button>
+          `).join('');
+        }
+        if (dotsContainerMobile) {
+          dotsContainerMobile.innerHTML = heroImages.map((_, index) => `
+            <button type="button"
+              class="hero-dot w-2.5 h-2.5 rounded-full transition ${index === currentIndex ? 'bg-white' : 'bg-white/50'}"
+              data-hero-index="${index}"
+              aria-label="Go to slide ${index + 1}"></button>
+          `).join('');
+        }
       };
 
       const goToSlide = (index) => {
@@ -789,8 +1617,15 @@
           currentIndex = index;
         }
 
-        imageElement.src = heroImages[currentIndex];
-        imageElement.alt = `Hero activity ${currentIndex + 1}`;
+        // Update both desktop and mobile images
+        if (imageElement) {
+          imageElement.src = heroImages[currentIndex];
+          imageElement.alt = `Hero activity ${currentIndex + 1}`;
+        }
+        if (imageMobileElement) {
+          imageMobileElement.src = heroImages[currentIndex];
+          imageMobileElement.alt = `Hero activity ${currentIndex + 1}`;
+        }
         renderDots();
       };
 
@@ -799,26 +1634,53 @@
         timerId = setInterval(() => goToSlide(currentIndex + 1), 4500);
       };
 
-      prevButton.addEventListener('click', () => {
-        goToSlide(currentIndex - 1);
-        restartAutoSlide();
-      });
+      // Desktop controls
+      if (prevButton) {
+        prevButton.addEventListener('click', () => {
+          goToSlide(currentIndex - 1);
+          restartAutoSlide();
+        });
+      }
+      if (nextButton) {
+        nextButton.addEventListener('click', () => {
+          goToSlide(currentIndex + 1);
+          restartAutoSlide();
+        });
+      }
+      if (dotsContainer) {
+        dotsContainer.addEventListener('click', (event) => {
+          const target = event.target instanceof Element ? event.target.closest('[data-hero-index]') : null;
+          if (!target) return;
+          const index = Number(target.getAttribute('data-hero-index'));
+          if (Number.isNaN(index)) return;
+          goToSlide(index);
+          restartAutoSlide();
+        });
+      }
 
-      nextButton.addEventListener('click', () => {
-        goToSlide(currentIndex + 1);
-        restartAutoSlide();
-      });
-
-      dotsContainer.addEventListener('click', (event) => {
-        const target = event.target instanceof Element ? event.target.closest('[data-hero-index]') : null;
-        if (!target) return;
-
-        const index = Number(target.getAttribute('data-hero-index'));
-        if (Number.isNaN(index)) return;
-
-        goToSlide(index);
-        restartAutoSlide();
-      });
+      // Mobile controls
+      if (prevButtonMobile) {
+        prevButtonMobile.addEventListener('click', () => {
+          goToSlide(currentIndex - 1);
+          restartAutoSlide();
+        });
+      }
+      if (nextButtonMobile) {
+        nextButtonMobile.addEventListener('click', () => {
+          goToSlide(currentIndex + 1);
+          restartAutoSlide();
+        });
+      }
+      if (dotsContainerMobile) {
+        dotsContainerMobile.addEventListener('click', (event) => {
+          const target = event.target instanceof Element ? event.target.closest('[data-hero-index]') : null;
+          if (!target) return;
+          const index = Number(target.getAttribute('data-hero-index'));
+          if (Number.isNaN(index)) return;
+          goToSlide(index);
+          restartAutoSlide();
+        });
+      }
 
       goToSlide(0);
       restartAutoSlide();
@@ -863,11 +1725,22 @@
       const timelineViewerImage = document.getElementById('timeline-viewer-image');
       const timelineViewerCaption = document.getElementById('timeline-viewer-caption');
       const timelineViewerCounter = document.getElementById('timeline-viewer-counter');
+      const timelineViewerPanel = document.getElementById('timeline-viewer-panel');
+      const easterEggTrigger = document.getElementById('footer-easter-trigger');
+      const easterEggModal = document.getElementById('easter-egg-modal');
+      const easterEggBackdrop = document.getElementById('easter-egg-backdrop');
+      const easterEggContent = document.getElementById('easter-egg-content');
+      const easterEggClose = document.getElementById('easter-egg-close');
 
       let activeYearIndex = 0;
       let activeImageIndex = 0;
+      let activeBlogIndex = 0;
+      let footerClickCount = 0;
+      let footerClickTimer = null;
 
       const isViewerVisible = () => timelineViewer && !timelineViewer.classList.contains('hidden');
+      const isBlogModalVisible = () => blogModal && !blogModal.classList.contains('hidden');
+      const isEasterEggVisible = () => easterEggModal && !easterEggModal.classList.contains('hidden');
 
       const getTimelineViewerData = () => {
         if (!timelineList?.dataset.timelineViewer) return [];
@@ -877,6 +1750,137 @@
           return [];
         }
       };
+
+      // --- Blog Modal Logic ---
+      const blogModal = document.getElementById('blog-modal');
+      const blogModalBackdrop = document.getElementById('blog-modal-backdrop');
+      const blogModalContent = document.getElementById('blog-modal-content');
+      const blogModalBody = document.getElementById('blog-modal-body');
+      const blogModalEyebrow = document.getElementById('blog-modal-eyebrow');
+      const blogModalClose = document.getElementById('blog-modal-close');
+      const blogModalPrevYear = document.getElementById('blog-modal-prev-year');
+      const blogModalNextYear = document.getElementById('blog-modal-next-year');
+      const blogModalScrollContainer = blogModal?.querySelector('[data-blog-scroll]');
+
+      const updateBlogNavigationButtons = (currentIndex, totalItems) => {
+        if (blogModalPrevYear) {
+          blogModalPrevYear.disabled = currentIndex <= 0;
+        }
+
+        if (blogModalNextYear) {
+          blogModalNextYear.disabled = currentIndex >= totalItems - 1;
+        }
+      };
+
+      const renderBlogModalByIndex = (index) => {
+        const tlData = getTimelineViewerData();
+        if (!tlData.length || !blogModal) return;
+
+        const safeIndex = Math.max(0, Math.min(index, tlData.length - 1));
+        const yearData = tlData[safeIndex];
+        if (!yearData) return;
+
+        activeBlogIndex = safeIndex;
+        blogModalEyebrow.textContent = `${yearData.year} • ${yearData.title}`;
+        blogModalBody.innerHTML = yearData.modalDetails || '<p class="text-center text-slate-500 py-10">ไม่พบรายละเอียดเนื้อหาเพิ่มเติม...</p>';
+        updateBlogNavigationButtons(activeBlogIndex, tlData.length);
+
+        if (blogModalScrollContainer) {
+          blogModalScrollContainer.scrollTo({ top: 0, behavior: 'auto' });
+        }
+      };
+
+      const closeBlogModal = () => {
+        if (!blogModal) return;
+        blogModalBackdrop.classList.remove('opacity-100');
+        blogModalBackdrop.classList.add('opacity-0');
+        blogModalContent.classList.remove('scale-100', 'opacity-100');
+        blogModalContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+          blogModal.classList.add('hidden');
+          blogModal.classList.remove('flex');
+          document.body.classList.remove('overflow-hidden');
+        }, 300);
+      };
+
+      window.openBlogModal = (index) => {
+        if (!blogModal) return;
+        renderBlogModalByIndex(index);
+
+        blogModal.classList.remove('hidden');
+        blogModal.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+        
+        // Trigger reflow for animations
+        void blogModal.offsetWidth;
+        
+        blogModalBackdrop.classList.remove('opacity-0');
+        blogModalBackdrop.classList.add('opacity-100');
+        blogModalContent.classList.remove('scale-95', 'opacity-0');
+        blogModalContent.classList.add('scale-100', 'opacity-100');
+      };
+
+      const goToPreviousBlogYear = () => {
+        renderBlogModalByIndex(activeBlogIndex - 1);
+      };
+
+      const goToNextBlogYear = () => {
+        renderBlogModalByIndex(activeBlogIndex + 1);
+      };
+
+      blogModalClose?.addEventListener('click', closeBlogModal);
+      blogModalBackdrop?.addEventListener('click', closeBlogModal);
+      blogModalPrevYear?.addEventListener('click', goToPreviousBlogYear);
+      blogModalNextYear?.addEventListener('click', goToNextBlogYear);
+      // -----------------------
+
+      // --- Footer Easter Egg ---
+      const openEasterEggModal = () => {
+        if (!easterEggModal || !easterEggContent) return;
+        easterEggModal.classList.remove('hidden');
+        easterEggModal.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+
+        void easterEggModal.offsetWidth;
+        easterEggContent.classList.remove('scale-95', 'opacity-0');
+        easterEggContent.classList.add('scale-100', 'opacity-100');
+      };
+
+      const closeEasterEggModal = () => {
+        if (!easterEggModal || !easterEggContent) return;
+
+        easterEggContent.classList.remove('scale-100', 'opacity-100');
+        easterEggContent.classList.add('scale-95', 'opacity-0');
+
+        setTimeout(() => {
+          easterEggModal.classList.add('hidden');
+          easterEggModal.classList.remove('flex');
+          document.body.classList.remove('overflow-hidden');
+        }, 200);
+      };
+
+      if (easterEggTrigger) {
+        easterEggTrigger.addEventListener('click', () => {
+          footerClickCount += 1;
+
+          if (footerClickTimer) {
+            clearTimeout(footerClickTimer);
+          }
+
+          if (footerClickCount >= 2) {
+            footerClickCount = 0;
+            openEasterEggModal();
+            return;
+          }
+
+          footerClickTimer = setTimeout(() => {
+            footerClickCount = 0;
+          }, 420);
+        });
+      }
+
+      easterEggClose?.addEventListener('click', closeEasterEggModal);
+      // -------------------------
 
       const renderViewer = () => {
         const data = getTimelineViewerData();
@@ -896,23 +1900,78 @@
         timelineViewerCounter.textContent = `${activeImageIndex + 1} / ${totalImages}`;
       };
 
-      const openViewer = (yearIndex, imageIndex) => {
+      const openViewer = (yearIndex, imageIndex, sourceElement = null) => {
         activeYearIndex = yearIndex;
         activeImageIndex = imageIndex;
         renderViewer();
-        if (timelineViewer) {
-          timelineViewer.classList.remove('hidden');
-          timelineViewer.classList.add('flex');
-          document.body.classList.add('overflow-hidden');
+        if (!timelineViewer) return;
+
+        timelineViewer.classList.remove('hidden');
+        timelineViewer.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+
+        if (!timelineViewerPanel) {
+          timelineViewer.classList.add('viewer-open');
+          return;
         }
+
+        timelineViewerPanel.style.opacity = '1';
+        timelineViewerPanel.style.transform = 'translate(0px, 0px) scale(1, 1) rotate(0deg)';
+
+        if (!sourceElement) {
+          requestAnimationFrame(() => {
+            timelineViewer.classList.add('viewer-open');
+          });
+          return;
+        }
+
+        const sourceRect = sourceElement.getBoundingClientRect();
+        const panelRect = timelineViewerPanel.getBoundingClientRect();
+
+        if (sourceRect.width === 0 || sourceRect.height === 0 || panelRect.width === 0 || panelRect.height === 0) {
+          timelineViewer.classList.add('viewer-open');
+          return;
+        }
+
+        const sourceCenterX = sourceRect.left + (sourceRect.width / 2);
+        const sourceCenterY = sourceRect.top + (sourceRect.height / 2);
+        const panelCenterX = panelRect.left + (panelRect.width / 2);
+        const panelCenterY = panelRect.top + (panelRect.height / 2);
+        const translateX = sourceCenterX - panelCenterX;
+        const translateY = sourceCenterY - panelCenterY;
+        const scaleX = Math.max(0.15, sourceRect.width / panelRect.width);
+        const scaleY = Math.max(0.15, sourceRect.height / panelRect.height);
+        const tilt = Number(sourceElement.getAttribute('data-photo-tilt')) || 0;
+
+        timelineViewerPanel.style.opacity = '0.78';
+        timelineViewerPanel.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY}) rotate(${tilt}deg)`;
+
+        requestAnimationFrame(() => {
+          timelineViewer.classList.add('viewer-open');
+          timelineViewerPanel.style.opacity = '1';
+          timelineViewerPanel.style.transform = 'translate(0px, 0px) scale(1, 1) rotate(0deg)';
+        });
       };
 
       const closeViewer = () => {
-        if (timelineViewer) {
+        if (!timelineViewer) return;
+
+        timelineViewer.classList.remove('viewer-open');
+
+        if (timelineViewerPanel) {
+          timelineViewerPanel.style.opacity = '0.96';
+          timelineViewerPanel.style.transform = 'translate(0px, 10px) scale(0.98, 0.98) rotate(0deg)';
+        }
+
+        setTimeout(() => {
           timelineViewer.classList.add('hidden');
           timelineViewer.classList.remove('flex');
+          if (timelineViewerPanel) {
+            timelineViewerPanel.style.opacity = '1';
+            timelineViewerPanel.style.transform = 'translate(0px, 0px) scale(1, 1) rotate(0deg)';
+          }
           document.body.classList.remove('overflow-hidden');
-        }
+        }, 260);
       };
 
       const goNextImage = () => {
@@ -928,13 +1987,24 @@
       if (timelineList) {
         timelineList.addEventListener('click', (event) => {
           const target = event.target instanceof Element ? event.target.closest('[data-timeline-open="true"]') : null;
-          if (!target) return;
+          if (target) {
+            const yearIndex = Number(target.getAttribute('data-year-index'));
+            const imageIndex = Number(target.getAttribute('data-image-index'));
 
-          const yearIndex = Number(target.getAttribute('data-year-index'));
-          const imageIndex = Number(target.getAttribute('data-image-index'));
+            if (Number.isNaN(yearIndex) || Number.isNaN(imageIndex)) return;
+            event.stopPropagation();
+            openViewer(yearIndex, imageIndex, target);
+            return;
+          }
 
-          if (Number.isNaN(yearIndex) || Number.isNaN(imageIndex)) return;
-          openViewer(yearIndex, imageIndex);
+          const blogTarget = event.target instanceof Element ? event.target.closest('[data-blog-open="true"]') : null;
+          if (!blogTarget) return;
+
+          const yearIndex = Number(blogTarget.getAttribute('data-year-index'));
+          if (Number.isNaN(yearIndex)) return;
+          if (window.openBlogModal) {
+            window.openBlogModal(yearIndex);
+          }
         });
       }
 
@@ -944,6 +2014,30 @@
       timelineViewerPrev?.addEventListener('click', goPrevImage);
 
       document.addEventListener('keydown', (event) => {
+        if (isEasterEggVisible()) {
+          if (event.key === 'Escape') {
+            closeEasterEggModal();
+          }
+          return;
+        }
+
+        if (isBlogModalVisible()) {
+          if (event.key === 'Escape') {
+            closeBlogModal();
+            return;
+          }
+
+          if (event.key === 'ArrowLeft') {
+            goToPreviousBlogYear();
+            return;
+          }
+
+          if (event.key === 'ArrowRight') {
+            goToNextBlogYear();
+            return;
+          }
+        }
+
         if (!isViewerVisible()) return;
 
         if (event.key === 'Escape') {
@@ -961,8 +2055,36 @@
         }
       });
 
+      function initScrollReveal() {
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        reveals.forEach(reveal => observer.observe(reveal));
+      }
+
       setCurrentYear();
-      renderDynamicContent();
+      renderDynamicContent().then(() => {
+        // Wait for dynamic content to be rendered before observing
+        setTimeout(() => {
+          // Add reveal class to dynamic grids if they don't have it
+          const grids = ['#admission-grid > div', '#timeline-list > .relative', '#portal-grid > a', '#future-work-grid > div'];
+          grids.forEach(selector => {
+            document.querySelectorAll(selector).forEach((el, index) => {
+              el.classList.add('reveal');
+              // Stagger delay based on index
+              if (index % 3 === 1) el.classList.add('reveal-delay-100');
+              if (index % 3 === 2) el.classList.add('reveal-delay-200');
+            });
+          });
+          initScrollReveal();
+        }, 300);
+      });
     });
 
   </script>

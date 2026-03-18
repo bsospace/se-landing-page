@@ -1,15 +1,15 @@
 [
   {
     "year": "ปี 1",
-    "title": "Fundamental Concepts & Logical Thinking",
-    "description": "มุ่งเน้นการวางรากฐานด้านคณิตศาสตร์ การเขียนโปรแกรม และแนวคิดเชิงคำนวณ (Computational Thinking) เพื่อพัฒนาทักษะการคิดอย่างเป็นระบบ การแก้ปัญหาอย่างมีขั้นตอน และความเข้าใจโครงสร้างพื้นฐานของโปรแกรม นิสิตจะได้เรียนรู้การเขียนโค้ดเบื้องต้น การวิเคราะห์ปัญหา และการออกแบบวิธีแก้ไขในรูปแบบอัลกอริทึม พร้อมทั้งเสริมทักษะด้านการสื่อสาร การทำงานร่วมกัน และการเรียนรู้ด้วยตนเอง ซึ่งเป็นพื้นฐานสำคัญสำหรับการเรียนในระดับที่สูงขึ้น",
+    "title": "Foundation",
+    "contentFile": "./data/timeline/year-1.md",
     "images": [],
-    "imageAlt": "กิจกรรมเรียนพื้นฐานการเขียนโปรแกรมของนิสิตปี 1"
+    "imageAlt": "กิจกรรมเรียนพื้นฐานการเขียนโปรแกรมของนิสิต"
   },
   {
     "year": "ปี 2",
-    "title": "Software Systems & Engineering Principles",
-    "description": "พัฒนาความรู้สู่แกนหลักของวิศวกรรมซอฟต์แวร์ โดยครอบคลุมโครงสร้างข้อมูล อัลกอริทึม ฐานข้อมูล และการวิเคราะห์ออกแบบระบบ (System Analysis & Design) รวมถึงการเก็บและจัดการความต้องการของผู้ใช้ นิสิตจะเริ่มเข้าใจภาพรวมของกระบวนการพัฒนาซอฟต์แวร์ (Software Development Life Cycle) และฝึกทำงานเป็นทีมตามแนวคิด Agile เพื่อเตรียมความพร้อมสู่การพัฒนาโปรเจกต์จริง",
+    "title": "Process, Analysis & Development",
+    "contentFile": "./data/timeline/year-2.md",
     "images": [
       "./images/ossd/1.jpg",
       "./images/ossd/2.jpg",
@@ -19,20 +19,20 @@
       "./images/ossd/6.jpg",
       "./images/ossd/7.jpg"
     ],
-    "imageAlt": "กิจกรรม workshop ด้าน software engineering ของนิสิตปี 2"
+    "imageAlt": "กิจกรรมค่ายพัฒนาระบบซอฟต์แวร์ 8 วัน 7 คืน"
   },
   {
     "year": "ปี 3",
-    "title": "Advanced Applications & Specialization",
-    "description": "ต่อยอดสู่การพัฒนาระบบที่มีความซับซ้อนมากขึ้น โดยเน้นการพัฒนา Web/Mobile, Backend Systems, Software Testing และ DevOps รวมถึงการออกแบบสถาปัตยกรรมระบบ (System Architecture) นิสิตสามารถเลือกเรียนวิชาเฉพาะทาง (Elective) ตามความสนใจ เช่น Data, AI หรือ Cloud และฝึกใช้เครื่องมือที่ใกล้เคียงกับการทำงานจริงในอุตสาหกรรม",
+    "title": "Team Process & Architecture",
+    "contentFile": "./data/timeline/year-3.md",
     "images": [],
-    "imageAlt": "กิจกรรมพัฒนาโปรเจกต์ขั้นสูงของนิสิตปี 3"
+    "imageAlt": "กิจกรรมพัฒนาโปรเจกต์ระดับ Enterprise"
   },
   {
     "year": "ปี 4",
-    "title": "Capstone Integration & Professional Readiness",
-    "description": "บูรณาการองค์ความรู้ทั้งหมดผ่านโครงงานวิศวกรรมซอฟต์แวร์ (Capstone Project) ซึ่งครอบคลุมตั้งแต่การวิเคราะห์ ออกแบบ พัฒนา ทดสอบ และนำเสนอระบบ พร้อมทั้งฝึกประสบการณ์จริงผ่านสหกิจศึกษา (Cooperative Education) หรือการฝึกงานในองค์กร เพื่อเสริมทักษะวิชาชีพ การทำงานเป็นทีมในสภาพแวดล้อมจริง และการเตรียมความพร้อมเข้าสู่ตลาดแรงงาน",
+    "title": "Co-op, Seminar & Project",
+    "contentFile": "./data/timeline/year-4.md",
     "images": [],
-    "imageAlt": "กิจกรรมนำเสนอ capstone และฝึกประสบการณ์วิชาชีพของนิสิตปี 4"
+    "imageAlt": "กิจกรรม COOP Day และนำเสนอ Capstone Project"
   }
 ]

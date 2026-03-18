@@ -13,5 +13,10 @@
     "icon": "fa-solid fa-shield-halved",
     "title": "Open Source Ethics",
     "description": "ปลูกฝังจรรยาบรรณวิชาชีพและการแบ่งปันความรู้ผ่านวิถีโอเพนซอร์สที่เป็นสากล"
+  },
+  {
+    "icon": "fa-solid fa-layer-group",
+    "title": "Module System",
+    "description": "ระบบการเรียนแบบโมดูล (Outcome-Based Education) บูรณาการกลุ่มรายวิชาเข้าด้วยกันเพื่อผลลัพธ์ที่นำไปใช้งานได้จริง"
   }
 ]

@@ -2,7 +2,7 @@
   {
     "type": "link",
     "icon": "fa-brands fa-facebook text-2xl text-red-600",
-    "label": "Software Engineering BUU",
+    "label": "วิศวกรรมซอฟต์แวร์ บูรพา",
     "url": "https://www.facebook.com/SoftEngBUU"
   },
   {
@@ -16,6 +16,12 @@
     "icon": "fa-brands fa-facebook text-2xl text-red-600",
     "label": "Informatics BUU",
     "url": "https://www.facebook.com/InformaticsBuu"
+  },
+  {
+    "type": "link",
+    "icon": "fa-brands fa-instagram text-2xl text-red-600",
+    "label": "Software Engineering IG",
+    "url": "https://www.instagram.com/buu.software.engineer/"
   },
   {
     "type": "text",
