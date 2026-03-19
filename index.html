@@ -433,6 +433,68 @@
       -webkit-overflow-scrolling: touch;
     }
 
+
+    /* --- Career Cards --- */
+    .flip-card {
+      cursor: pointer;
+      height: 160px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+
+    .flip-card.launching .flip-card-inner {
+      transform: rotateY(90deg) scale(0.9);
+    }
+
+    .flip-card-front {
+      position: absolute;
+      inset: 0;
+      border-radius: 1.5rem;
+      background: #fff;
+      border: 1px solid #f1f5f9;
+      box-shadow: 0 4px 20px -6px rgba(15,23,42,0.12);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.5rem;
+      backface-visibility: hidden;
+      transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+    }
+
+    .flip-card:hover .flip-card-front {
+      box-shadow: 0 12px 40px -10px rgba(15,23,42,0.18);
+      border-color: #cbd5e1;
+      transform: translateY(-3px);
+    }
+
+    /* --- Career Modal --- */
+    #career-modal {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    #career-modal.career-modal-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #career-modal-panel {
+      transform: scale(0.85);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    }
+    #career-modal.career-modal-open #career-modal-panel {
+      transform: scale(1);
+      opacity: 1;
+    }
+    /* -------------------------------- */
+
     .partners-marquee {
       position: relative;
       overflow: hidden;
@@ -616,6 +678,23 @@
     <div class="max-w-7xl mx-auto px-4">
       <div id="usp-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- USP cards will be injected here via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="pb-24 pt-4">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <div class="mb-10 reveal">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 tracking-tight font-montserrat">
+          Discover <span class="text-red-600">SE BUU</span>
+        </h2>
+        <p class="text-slate-500 mt-3 max-w-2xl mx-auto text-lg">
+          ทำความรู้จักกับหลักสูตรวิศวกรรมซอฟต์แวร์ ผ่านภาพบรรยากาศการเรียนและการทำกิจกรรม
+        </p>
+      </div>
+      <div class="reveal reveal-delay-200" style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1.25rem; box-shadow: 0 20px 60px -15px rgba(15,23,42,0.3); border: 1px solid #e2e8f0;">
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/h2sNvqaSRQg" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -811,6 +890,28 @@
       </div>
     </div>
   </section>
+
+  <!-- Career Detail Modal -->
+  <div id="career-modal" class="fixed inset-0 z-[120] hidden items-center justify-center p-4">
+    <div id="career-modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div id="career-modal-panel" class="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl">
+      <div id="career-modal-header" class="p-8 pb-6 text-white">
+        <div class="flex items-center gap-4 mb-4">
+          <div id="career-modal-icon" class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl bg-white/20"></div>
+          <div>
+            <div class="text-white/70 text-sm font-semibold uppercase tracking-wider mb-1">อาชีพสำหรับนิสิต SE</div>
+            <h3 id="career-modal-title" class="text-2xl font-extrabold tracking-tight"></h3>
+          </div>
+        </div>
+        <p id="career-modal-desc" class="text-white/80 text-sm leading-relaxed"></p>
+      </div>
+      <div class="bg-white px-8 py-6">
+        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">รายละเอียดสิ่งที่ต้องทำ</h4>
+        <p id="career-modal-detail" class="text-slate-600 leading-relaxed text-sm"></p>
+        <button id="career-modal-close" type="button" class="mt-6 w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 rounded-2xl transition">ปิด</button>
+      </div>
+    </div>
+  </div>
 
   <!-- FAQ Section -->
   <section id="faq" class="py-20 bg-white scroll-mt-20">
@@ -1423,31 +1524,72 @@
       if (!container) return;
 
       const colors = [
-        'from-blue-50 to-blue-100 text-blue-600 ring-blue-50',
-        'from-emerald-50 to-emerald-100 text-emerald-600 ring-emerald-50',
-        'from-purple-50 to-purple-100 text-purple-600 ring-purple-50',
-        'from-amber-50 to-amber-100 text-amber-600 ring-amber-50',
-        'from-red-50 to-red-100 text-red-600 ring-red-50',
-        'from-cyan-50 to-cyan-100 text-cyan-600 ring-cyan-50',
-        'from-rose-50 to-rose-100 text-rose-600 ring-rose-50',
-        'from-indigo-50 to-indigo-100 text-indigo-600 ring-indigo-50',
-        'from-orange-50 to-orange-100 text-orange-600 ring-orange-50'
+        { from: '#dbeafe', to: '#93c5fd', text: '#1d4ed8', bg: ['#3b82f6', '#1d4ed8'] },
+        { from: '#d1fae5', to: '#6ee7b7', text: '#065f46', bg: ['#10b981', '#065f46'] },
+        { from: '#ede9fe', to: '#c4b5fd', text: '#5b21b6', bg: ['#8b5cf6', '#5b21b6'] },
+        { from: '#fef3c7', to: '#fcd34d', text: '#92400e', bg: ['#f59e0b', '#92400e'] },
+        { from: '#fee2e2', to: '#fca5a5', text: '#991b1b', bg: ['#ef4444', '#991b1b'] },
+        { from: '#cffafe', to: '#67e8f9', text: '#0e7490', bg: ['#06b6d4', '#0e7490'] },
+        { from: '#ffe4e6', to: '#fda4af', text: '#9f1239', bg: ['#f43f5e', '#9f1239'] },
+        { from: '#e0e7ff', to: '#a5b4fc', text: '#3730a3', bg: ['#6366f1', '#3730a3'] },
+        { from: '#ffedd5', to: '#fdba74', text: '#9a3412', bg: ['#f97316', '#9a3412'] }
       ];
 
+      // Store data for modal
+      container.dataset.careerItems = JSON.stringify(items);
+
       container.innerHTML = items.map((item, index) => {
-        const colorClass = colors[index % colors.length];
+        const c = colors[index % colors.length];
         return `
-        <div class="bg-white rounded-3xl p-7 border border-slate-100 shadow-md hover:shadow-2xl hover:border-slate-200 hover:-translate-y-2 transition-all duration-300 h-full flex items-start gap-5 group">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${colorClass} flex items-center justify-center text-2xl shrink-0 shadow-inner ring-4 group-hover:scale-110 transition-transform">
-            <i class="${item.icon}" aria-hidden="true"></i>
+        <div class="flip-card" data-career-index="${index}" title="คลิกเพื่อดูรายละเอียด">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shrink-0 shadow-inner" style="background: linear-gradient(135deg, ${c.from}, ${c.to}); color: ${c.text};">
+                <i class="${item.icon}" aria-hidden="true"></i>
+              </div>
+              <div style="flex:1;min-width:0;">
+                <h3 class="font-bold text-slate-800 tracking-tight" style="font-size:1.05rem;">${item.title}</h3>
+                <p class="text-slate-400 mt-1 text-xs leading-relaxed">${item.description}</p>
+              </div>
+              <div class="shrink-0 text-slate-200" style="font-size:1rem;">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3 class="text-xl font-bold text-slate-800 tracking-tight">${item.title}</h3>
-            <p class="text-slate-500 mt-2 leading-relaxed text-sm">${item.description}</p>
-          </div>
-        </div>
-        `;
+        </div>`;
       }).join('');
+
+      // Click to open career modal
+      container.addEventListener('click', (e) => {
+        const card = e.target.closest('[data-career-index]');
+        if (!card) return;
+        const index = Number(card.getAttribute('data-career-index'));
+        const allItems = JSON.parse(container.dataset.careerItems || '[]');
+        const item = allItems[index];
+        if (!item) return;
+        const c = colors[index % colors.length];
+
+        // Animate card
+        card.classList.add('launching');
+
+        // Open modal after card flip starts
+        setTimeout(() => {
+          const modal = document.getElementById('career-modal');
+          const panel = document.getElementById('career-modal-panel');
+          const header = document.getElementById('career-modal-header');
+          document.getElementById('career-modal-title').textContent = item.title;
+          document.getElementById('career-modal-desc').textContent = item.description;
+          document.getElementById('career-modal-detail').textContent = item.detail || item.description;
+          document.getElementById('career-modal-icon').innerHTML = `<i class="${item.icon}"></i>`;
+          if (header) header.style.background = `linear-gradient(135deg, ${c.bg[0]}, ${c.bg[1]})`;
+
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          requestAnimationFrame(() => {
+            modal.classList.add('career-modal-open');
+          });
+        }, 200);
+      });
     }
 
     function renderPartners(items = []) {
@@ -1907,6 +2049,23 @@
       easterEggClose?.addEventListener('click', closeEasterEggModal);
       // -------------------------
 
+      // --- Career Modal Logic ---
+      const closeCareerModal = () => {
+        const modal = document.getElementById('career-modal');
+        if (!modal) return;
+        modal.classList.remove('career-modal-open');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          // Reset launching state on all cards
+          document.querySelectorAll('.flip-card.launching').forEach(c => c.classList.remove('launching'));
+        }, 280);
+      };
+
+      document.getElementById('career-modal-close')?.addEventListener('click', closeCareerModal);
+      document.getElementById('career-modal-backdrop')?.addEventListener('click', closeCareerModal);
+      // -------------------------
+
       const renderViewer = () => {
         const data = getTimelineViewerData();
         const yearData = data[activeYearIndex];
@@ -2039,6 +2198,12 @@
       timelineViewerPrev?.addEventListener('click', goPrevImage);
 
       document.addEventListener('keydown', (event) => {
+        const careerModal = document.getElementById('career-modal');
+        if (careerModal && !careerModal.classList.contains('hidden')) {
+          if (event.key === 'Escape') closeCareerModal();
+          return;
+        }
+
         if (isEasterEggVisible()) {
           if (event.key === 'Escape') {
             closeEasterEggModal();

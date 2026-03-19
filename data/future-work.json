@@ -2,46 +2,55 @@
   {
     "title": "Software Engineer",
     "icon": "fa-solid fa-code",
-    "description": "วิศวกรรมซอฟต์แวร์ หรือนักเขียนโปรแกรม (Programmer/Developer)"
+    "description": "วิศวกรรมซอฟต์แวร์ หรือนักเขียนโปรแกรม (Programmer/Developer)",
+    "detail": "รับผิดชอบออกแบบ เขียนโปรแกรม และดูแลรักษาระบบซอฟต์แวร์ ครอบคลุมทั้ง Frontend (UI/UX), Backend (API, Database) และ DevOps ทำงานในทีมโดยใช้กระบวนการ Agile/Scrum พัฒนา Feature ใหม่และแก้ไข Bug ในผลิตภัณฑ์จริง รวมถึงเขียน Unit Test และ Code Review เพื่อรักษาคุณภาพโค้ด"
   },
   {
     "title": "Requirement Engineer",
     "icon": "fa-solid fa-file-invoice",
-    "description": "วิศวกรความต้องการ วิเคราะห์ความต้องการระบบ"
+    "description": "วิศวกรความต้องการ วิเคราะห์ความต้องการระบบ",
+    "detail": "ทำหน้าที่เป็นสะพานเชื่อมระหว่างลูกค้าและทีมพัฒนา รวบรวม วิเคราะห์ และเขียนเอกสารความต้องการ (Requirements Specification) ของระบบ ใช้เทคนิคเช่น Use Case, User Story, และ Wireframe เพื่ออธิบายสิ่งที่ระบบต้องทำ ตรวจสอบให้ทีมพัฒนาเข้าใจตรงกับความต้องการของผู้ใช้งาน"
   },
   {
     "title": "Software QA / Tester",
     "icon": "fa-solid fa-shield",
-    "description": "นักประกันคุณภาพและนักทดสอบซอฟต์แวร์"
+    "description": "นักประกันคุณภาพและนักทดสอบซอฟต์แวร์",
+    "detail": "วางแผน ออกแบบ และดำเนินการทดสอบซอฟต์แวร์ทุกระดับ ตั้งแต่ Unit Test, Integration Test จนถึง System Test และ UAT รับผิดชอบเขียน Test Cases, ทำ Automated Testing และรายงาน Bug ให้ทีมพัฒนา รวมถึงตรวจสอบว่าซอฟต์แวร์ที่ส่งมอบให้ลูกค้ามีคุณภาพตรงตามมาตรฐานที่กำหนด"
   },
   {
     "title": "Process Improvement",
     "icon": "fa-solid fa-diagram-project",
-    "description": "วิศวกรปรับปรุงกระบวนการซอฟต์แวร์"
+    "description": "วิศวกรปรับปรุงกระบวนการซอฟต์แวร์",
+    "detail": "วิเคราะห์และปรับปรุงกระบวนการทำงานของทีมพัฒนาซอฟต์แวร์ให้มีประสิทธิภาพมากขึ้น ทำงานร่วมกับทีมเพื่อระบุปัญหา ลดความซ้ำซ้อนของขั้นตอน และนำกรอบงาน เช่น CMMI, Lean, หรือ Six Sigma มาประยุกต์ใช้ รวมถึงการวางระบบ CI/CD และ DevSecOps เพื่อเพิ่มความเร็วและความปลอดภัยในกระบวนการ Deploy"
   },
   {
     "title": "System Integrator",
     "icon": "fa-solid fa-network-wired",
-    "description": "นักบูรณาการระบบ เชื่อมโยงระบบต่างๆ เข้าด้วยกัน"
+    "description": "นักบูรณาการระบบ เชื่อมโยงระบบต่างๆ เข้าด้วยกัน",
+    "detail": "ออกแบบและพัฒนาสถาปัตยกรรมที่เชื่อมต่อระบบซอฟต์แวร์หลายระบบเข้าด้วยกัน ไม่ว่าจะเป็น API Integration, Middleware, Message Queue หรือ ESB (Enterprise Service Bus) ทำงานกับระบบขนาดใหญ่ขององค์กร เช่น ERP, CRM, และ IoT Platform และมีบทบาทสำคัญในโครงการ Digital Transformation"
   },
   {
     "title": "System Analyst",
     "icon": "fa-solid fa-magnifying-glass-chart",
-    "description": "นักวิเคราะห์หรือนักออกแบบระบบ (Analyst / Designer)"
+    "description": "นักวิเคราะห์หรือนักออกแบบระบบ (Analyst / Designer)",
+    "detail": "ศึกษาและวิเคราะห์ระบบงานขององค์กร เพื่อออกแบบโซลูชันซอฟต์แวร์ที่ตอบสนองความต้องการ จัดทำ Data Flow Diagram, Entity-Relationship Diagram และ System Architecture รับผิดชอบให้แน่ใจว่าระบบที่ออกแบบสามารถรองรับ Load ได้จริง ปลอดภัย และขยายได้ในอนาคต"
   },
   {
     "title": "UX/UI Designer",
     "icon": "fa-brands fa-figma",
-    "description": "นักออกแบบหน้าเว็บไซด์"
+    "description": "นักออกแบบประสบการณ์และหน้าตาผู้ใช้งาน",
+    "detail": "ออกแบบประสบการณ์ผู้ใช้งาน (User Experience) และส่วนติดต่อผู้ใช้ (User Interface) ของแอปพลิเคชัน ทำ User Research, Wireframe, Prototype และ Usability Testing ใช้เครื่องมือ เช่น Figma เพื่อออกแบบ Design System และ Handoff งานให้ทีมพัฒนาได้อย่างครบถ้วน"
   },
   {
     "title": "Business Analyst",
     "icon": "fa-solid fa-magnifying-glass-chart",
-    "description": "นักวิเคราะห์ความต้องการ"
+    "description": "นักวิเคราะห์ความต้องการทางธุรกิจ",
+    "detail": "ทำความเข้าใจกระบวนการทางธุรกิจขององค์กร แปลงความต้องการทางธุรกิจให้เป็นข้อกำหนดสำหรับระบบซอฟต์แวร์ วิเคราะห์ข้อมูล (Data Analysis) เพื่อสนับสนุนการตัดสินใจทางธุรกิจ ประสานงานระหว่างฝ่ายธุรกิจกับฝ่าย IT และช่วยให้มั่นใจว่า Solution ที่พัฒนาสร้างคุณค่าให้กับองค์กรได้จริง"
   },
   {
     "title": "Project Manager",
     "icon": "fa-solid fa-list-check",
-    "description": "ผู้จัดการโครงการซอฟต์แวร์"
+    "description": "ผู้จัดการโครงการซอฟต์แวร์",
+    "detail": "วางแผน ควบคุม และติดตามความคืบหน้าของโครงการพัฒนาซอฟต์แวร์ตั้งแต่ต้นจนจบ จัดการทรัพยากร งบประมาณ และไทม์ไลน์ สื่อสารกับผู้มีส่วนได้ส่วนเสีย (Stakeholders) ทุกฝ่าย แก้ไขปัญหาและความเสี่ยงที่เกิดขึ้นระหว่างโครงการ และนำทีมด้วย Methodology เช่น Scrum, Kanban หรือ PMBOK"
   }
 ]
