@@ -583,7 +583,7 @@
         <!-- Logo Section -->
         <div class="flex-1 flex items-center" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="cursor: pointer;">
           <div class="flex items-center space-x-3">
-            <img src="logo-se.jpg" alt="SE Logo" class="h-12 w-auto"
+            <img src="logo-se.jpg" alt="SE Logo" width="48" height="48" class="h-12 w-auto"
               onerror="this.src='https://placehold.co/600x600?text=SE'">
             <div>
               <span class="font-montserrat font-extrabold text-2xl tracking-tighter text-red-600 block leading-none">SE
@@ -693,7 +693,7 @@
   <!-- Unique Selling Points -->
   <section class="py-20">
     <div class="max-w-7xl mx-auto px-4">
-      <div id="usp-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div id="usp-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" style="min-height: 200px;">
         <!-- USP cards will be injected here via JavaScript -->
       </div>
     </div>
@@ -741,7 +741,7 @@
         <p class="text-slate-500 mt-6 text-xl reveal reveal-delay-100 font-medium">เตรียมตัวให้พร้อม!
           ส่องเส้นทางการสมัครและรอบการคัดเลือกล่าสุด (TCAS)</p>
       </div>
-      <div id="admission-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div id="admission-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" style="min-height: 280px;">
         <!-- Admission cards will be injected here via JavaScript -->
       </div>
       <div id="admission-view-more" class="mt-8 text-center">
@@ -808,7 +808,7 @@
           การเรียนรู้ที่จะเปลี่ยนคุณให้เป็น Software Engineer ตัวจริง</p>
       </div>
 
-      <div id="timeline-list" class="space-y-8">
+      <div id="timeline-list" class="space-y-8" style="min-height: 600px;">
         <!-- Timeline items will be injected here via JavaScript -->
       </div>
     </div>
@@ -857,6 +857,7 @@
             src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSoftEngBUU&tabs=timeline&width=500&height=700&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false"
             width="500" height="700" class="w-full max-w-[500px] h-[520px] sm:h-[620px] md:h-[700px] mx-auto block"
             style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
+            loading="lazy"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
           </iframe>
           <div class="absolute inset-0" aria-hidden="true"></div>
@@ -885,7 +886,7 @@
       </div>
 
       <!-- Dynamic Portal Grid -->
-      <div id="portal-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div id="portal-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="min-height: 300px;">
         <!-- Cards will be injected here via JavaScript -->
       </div>
     </div>
@@ -900,7 +901,7 @@
         <p class="text-slate-500 mt-6 text-xl reveal reveal-delay-100 font-medium">ตัวอย่างอาชีพที่เปิดโอกาสให้กับนิสิต SE</p>
       </div>
 
-      <div id="future-work-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div id="future-work-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" style="min-height: 400px;">
         <!-- Future work items will be injected here via JavaScript -->
       </div>
     </div>
@@ -915,13 +916,13 @@
           <div id="career-modal-icon" class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl bg-white/20"></div>
           <div>
             <div class="text-white/70 text-sm font-semibold uppercase tracking-wider mb-1">อาชีพสำหรับนิสิต SE</div>
-            <h3 id="career-modal-title" class="text-2xl font-extrabold tracking-tight"></h3>
+             <p id="career-modal-title" class="text-2xl font-extrabold tracking-tight" role="heading" aria-level="2"></p>
           </div>
         </div>
         <p id="career-modal-desc" class="text-white/80 text-sm leading-relaxed"></p>
       </div>
       <div class="bg-white px-8 py-6">
-        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">รายละเอียดสิ่งที่ต้องทำ</h4>
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">รายละเอียดสิ่งที่ต้องทำ</p>
         <p id="career-modal-detail" class="text-slate-600 leading-relaxed text-sm"></p>
         <button id="career-modal-close" type="button" class="mt-6 w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 rounded-2xl transition">ปิด</button>
       </div>
@@ -937,7 +938,7 @@
         <p class="text-slate-600 mt-4 text-lg">รวบรวมทุกข้อสงสัยให้ฉงนเกี่ยวกับการเรียน SE BUU</p>
       </div>
 
-      <div id="faq-list" class="space-y-4">
+      <div id="faq-list" class="space-y-4" style="min-height: 300px;">
         <!-- FAQ items will be injected here via JavaScript -->
       </div>
     </div>
