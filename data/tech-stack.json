@@ -3,27 +3,53 @@
     {
       "category": "Development",
       "color": "border-2 border-blue-400 text-blue-300 bg-transparent",
-      "items": ["Laravel Framework", "Bootstrap", "Tailwind CSS", "RESTful API", "MVC Architecture"]
+      "items": [
+        "Laravel Framework",
+        "Bootstrap",
+        "Tailwind CSS",
+        "RESTful API",
+        "MVC Architecture"
+      ]
     },
     {
       "category": "Database & Infrastructure",
       "color": "border-2 border-cyan-400 text-cyan-300 bg-transparent",
-      "items": ["MySQL Database", "Docker & Containers", "Cloud Computing"]
+      "items": [
+        "MySQL Database",
+        "Docker & Containers",
+        "Cloud Computing"
+      ]
     },
     {
       "category": "Programming",
       "color": "border-2 border-yellow-400 text-yellow-300 bg-transparent",
-      "items": ["JavaScript (ES6+)", "OOP", "Git Version Control"]
+      "items": [
+        "Java",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "OOP",
+        "Git Version Control"
+      ]
     },
     {
       "category": "Methodology & Architecture",
       "color": "border-2 border-emerald-400 text-emerald-300 bg-transparent",
-      "items": ["Agile Methodology", "OOSAD", "Enterprise Architecture", "PSP"]
+      "items": [
+        "Agile Methodology",
+        "OOSAD",
+        "Enterprise Architecture",
+        "PSP"
+      ]
     },
     {
       "category": "Emerging Technologies",
       "color": "border-2 border-rose-400 text-rose-300 bg-transparent",
-      "items": ["Artificial Intelligence", "Internet of Things", "OSSD Camp"]
+      "items": [
+        "Artificial Intelligence",
+        "Internet of Things",
+        "OSSD Camp"
+      ]
     }
   ],
   "highlights": [

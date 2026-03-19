@@ -3,36 +3,88 @@
     "year": "ปี 1",
     "title": "Foundation",
     "contentFile": "./data/timeline/year-1.md",
-    "images": [],
-    "imageAlt": "กิจกรรมเรียนพื้นฐานการเขียนโปรแกรมของนิสิต"
+    "images": [
+      {
+        "src": "./images/aunqa.jpg",
+        "alt": "การประเมินรับรองคุณภาพหลักสูตรระดับอาเซียน (AUN-QA)"
+      },
+      {
+        "src": "./images/tcas-1.jpg",
+        "alt": "บรรยากาศสัมภาษณ์ TCAS"
+      },
+      {
+        "src": "./images/tcas-2.jpg",
+        "alt": "บรรยากาศสัมภาษณ์ TCAS"
+      },
+      {
+        "src": "./images/cluster.jpg",
+        "alt": "โลโก้มกุลทั้ง 10 มกุล"
+      }
+    ],
+    "imageAlt": "เรียนรู้การทำงานและปรับตัวเข้าสู่มหาวิทยาลัย"
   },
   {
     "year": "ปี 2",
     "title": "Process, Analysis & Development",
     "contentFile": "./data/timeline/year-2.md",
     "images": [
-      "./images/ossd/1.jpg",
-      "./images/ossd/2.jpg",
-      "./images/ossd/3.jpg",
-      "./images/ossd/4.jpg",
-      "./images/ossd/5.jpg",
-      "./images/ossd/6.jpg",
-      "./images/ossd/7.jpg"
+      {
+        "src": "./images/ossd/1.jpg",
+        "alt": "บรรยากาศค่ายพัฒนาซอฟต์แวร์ OSSD"
+      },
+      {
+        "src": "./images/ossd/2.jpg",
+        "alt": "บรรยากาศค่ายพัฒนาซอฟต์แวร์ OSSD"
+      },
+      {
+        "src": "./images/ossd/3.jpg",
+        "alt": "บรรยากาศค่ายพัฒนาซอฟต์แวร์ OSSD"
+      },
+      {
+        "src": "./images/ossd/4.jpg",
+        "alt": "บรรยากาศค่ายพัฒนาซอฟต์แวร์ OSSD"
+      },
+      {
+        "src": "./images/ossd/5.jpg",
+        "alt": "บรรยากาศค่ายพัฒนาซอฟต์แวร์ OSSD"
+      },
+      {
+        "src": "./images/ossd/6.jpg",
+        "alt": "บรรยากาศค่ายพัฒนาซอฟต์แวร์ OSSD"
+      },
+      {
+        "src": "./images/ossd/7.jpg",
+        "alt": "บรรยากาศค่ายพัฒนาซอฟต์แวร์ OSSD"
+      }
     ],
-    "imageAlt": "กิจกรรมค่ายพัฒนาระบบซอฟต์แวร์ 8 วัน 7 คืน"
+    "imageAlt": "ค่ายแบบเข้มข้นเจาะลึกการสร้างระบบซอฟต์แวร์"
   },
   {
     "year": "ปี 3",
     "title": "Team Process & Architecture",
     "contentFile": "./data/timeline/year-3.md",
-    "images": [],
-    "imageAlt": "กิจกรรมพัฒนาโปรเจกต์ระดับ Enterprise"
+    "images": [
+      {
+        "src": "./images/team.jpg",
+        "alt": "บรรยากาศการจับทีม"
+      },
+      {
+        "src": "./images/se-birthday.jpg",
+        "alt": "เค้กวันเกิดฉลองครบรอบการก่อตั้งสาขา SE"
+      }
+    ],
+    "imageAlt": "การทำงานเป็นทีมและระบบขนาดใหญ่"
   },
   {
     "year": "ปี 4",
     "title": "Co-op, Seminar & Project",
     "contentFile": "./data/timeline/year-4.md",
-    "images": [],
-    "imageAlt": "กิจกรรม COOP Day และนำเสนอ Capstone Project"
+    "images": [
+      {
+        "src": "./images/byese12.jpg",
+        "alt": "รูปรวม SE#12 ในรายวิชาสัมมนาวิศวกรรมซอฟต์แวร์"
+      }
+    ],
+    "imageAlt": "ก้าวสู่การเป็นวิศวกรซอฟต์แวร์ระดับมืออาชีพ"
   }
 ]

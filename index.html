@@ -225,8 +225,8 @@
     .timeline-description {
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      line-clamp: 7;
-      -webkit-line-clamp: 7;
+      line-clamp: 10;
+      -webkit-line-clamp: 10;
       overflow: hidden;
     }
 
@@ -751,7 +751,7 @@
       </div>
 
       <div class="bg-white rounded-3xl p-5 px-0 md:p-7 border border-slate-200 shadow-sm">
-        <div class="flex items-center gap-3 mb-4">
+        <div class="flex items-center gap-3 mb-4 px-5 md:px-0">
           <div class="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl">
             <i class="fa-brands fa-facebook-f"></i>
           </div>
@@ -760,7 +760,7 @@
 
         <div class="relative md:rounded-2xl overflow-hidden border md:border-slate-200 md:bg-slate-100">
           <iframe title="Software Engineering BUU Facebook Timeline"
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSoftEngBUU&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSoftEngBUU&tabs=timeline&width=500&height=700&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false"
             width="500" height="700" class="w-full max-w-[500px] h-[520px] sm:h-[620px] md:h-[700px] mx-auto block"
             style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
@@ -827,7 +827,7 @@
     </div>
   </section>
 
-  <div id="timeline-viewer" class="fixed inset-0 z-[80] hidden items-center justify-center p-4">
+  <div id="timeline-viewer" class="fixed inset-0 z-[110] hidden items-center justify-center p-4">
     <div id="timeline-viewer-backdrop" class="absolute inset-0 bg-black/75"></div>
     <div id="timeline-viewer-panel" class="relative w-full max-w-5xl z-10">
       <button id="timeline-viewer-close" type="button"
@@ -1216,7 +1216,7 @@
           flushList();
           const imageAlt = parseInlineMarkdown(imageMatch[1] || '');
           const imageSrc = escapeHtml(imageMatch[2]);
-          blocks.push(`<figure><img src="${imageSrc}" alt="${imageAlt}" loading="lazy">${imageAlt ? `<figcaption>${imageAlt}</figcaption>` : ''}</figure>`);
+          blocks.push(`<figure><img src="${imageSrc}" alt="${imageAlt}" loading="lazy" class="cursor-pointer hover:opacity-90 transition-opacity" title="คลิกเพื่อขยายดูรูปภาพ">${imageAlt ? `<figcaption>${imageAlt}</figcaption>` : ''}</figure>`);
           return;
         }
 
@@ -1248,19 +1248,19 @@
     function markdownToPlainText(markdown = '') {
       return markdown
         .replace(/\r\n/g, '\n')
-        .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '$1')
+        .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '')
         .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '$1')
         .replace(/^#{1,6}\s+/gm, '')
         .replace(/^>\s+/gm, '')
-        .replace(/^[-*]\s+/gm, '')
+        .replace(/^[-*]\s+/gm, '• ')
         .replace(/\*\*(.+?)\*\*/g, '$1')
         .replace(/\*(.+?)\*/g, '$1')
         .replace(/`(.+?)`/g, '$1')
-        .replace(/\n{2,}/g, '\n')
+        .replace(/\n{2,}/g, '\n\n')
         .trim();
     }
 
-    function buildTimelineExcerpt(markdown = '', maxLength = 240) {
+    function buildTimelineExcerpt(markdown = '', maxLength = 800) {
       const plainText = markdownToPlainText(markdown);
       if (!plainText) {
         return 'กำลังอัปเดตเนื้อหาสำหรับหัวข้อนี้';
@@ -1405,7 +1405,7 @@
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-                <div class="text-slate-600 leading-relaxed timeline-description ${hasImages ? 'md:col-span-3' : 'md:col-span-5'} pointer-events-none">${item.description}</div>
+                <div class="text-slate-600 leading-relaxed timeline-description ${hasImages ? 'md:col-span-3' : 'md:col-span-5'} pointer-events-none whitespace-pre-line">${escapeHtml(item.description)}</div>
                 ${hasImages ? `
                   <div class="md:col-span-2 timeline-gallery">
                     ${galleryMarkup}
@@ -1832,6 +1832,31 @@
       blogModalBackdrop?.addEventListener('click', closeBlogModal);
       blogModalPrevYear?.addEventListener('click', goToPreviousBlogYear);
       blogModalNextYear?.addEventListener('click', goToNextBlogYear);
+      
+      blogModalBody?.addEventListener('click', (event) => {
+        if (event.target.tagName !== 'IMG') return;
+        
+        const tlData = getTimelineViewerData();
+        const yearData = tlData[activeBlogIndex];
+        if (!yearData || !Array.isArray(yearData.images)) return;
+
+        const clickedSrc = event.target.getAttribute('src');
+        const normalizeSrc = (src) => src.split('/').pop();
+        const clickedFilename = normalizeSrc(clickedSrc);
+        
+        let foundIndex = yearData.images.findIndex(imgObj => normalizeSrc(imgObj.src) === clickedFilename);
+        
+        if (foundIndex !== -1) {
+           openViewer(activeBlogIndex, foundIndex, event.target);
+        } else {
+           const newImgObj = { src: clickedSrc, alt: event.target.alt || 'รูปภาพประกอบ' };
+           const currentData = getTimelineViewerData();
+           if (!currentData[activeBlogIndex].images) currentData[activeBlogIndex].images = [];
+           currentData[activeBlogIndex].images.push(newImgObj);
+           document.getElementById('timeline-list').dataset.timelineViewer = JSON.stringify(currentData);
+           openViewer(activeBlogIndex, currentData[activeBlogIndex].images.length - 1, event.target);
+        }
+      });
       // -----------------------
 
       // --- Footer Easter Egg ---
@@ -1896,7 +1921,7 @@
 
         timelineViewerImage.src = currentImage.src;
         timelineViewerImage.alt = currentImage.alt || `${yearData.title}`;
-        timelineViewerCaption.textContent = `${yearData.year} • ${yearData.title}`;
+        timelineViewerCaption.textContent = `${yearData.year} • ${currentImage.alt || yearData.title}`;
         timelineViewerCounter.textContent = `${activeImageIndex + 1} / ${totalImages}`;
       };
 
@@ -2021,6 +2046,23 @@
           return;
         }
 
+        if (isViewerVisible()) {
+          if (event.key === 'Escape') {
+            closeViewer();
+            return;
+          }
+
+          if (event.key === 'ArrowRight') {
+            goNextImage();
+            return;
+          }
+
+          if (event.key === 'ArrowLeft') {
+            goPrevImage();
+            return;
+          }
+        }
+
         if (isBlogModalVisible()) {
           if (event.key === 'Escape') {
             closeBlogModal();
@@ -2036,22 +2078,6 @@
             goToNextBlogYear();
             return;
           }
-        }
-
-        if (!isViewerVisible()) return;
-
-        if (event.key === 'Escape') {
-          closeViewer();
-          return;
-        }
-
-        if (event.key === 'ArrowRight') {
-          goNextImage();
-          return;
-        }
-
-        if (event.key === 'ArrowLeft') {
-          goPrevImage();
         }
       });
 
