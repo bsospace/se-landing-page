@@ -4,27 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Software Engineering - BUU Informatics</title>
-  <link rel="icon" type="image/svg+xml" href="./logo-se.jpg">
+  <title>Software Engineering BUU — สาขาวิศวกรรมซอฟต์แวร์ มหาวิทยาลัยบูรพา</title>
+  <meta name="description" content="สาขาวิชาวิศวกรรมซอฟต์แวร์ คณะวิทยาการสารสนเทศ มหาวิทยาลัยบูรพา หลักสูตรที่เน้นทักษะจริง ฝึกงานในเขต EEC รับผลิตนักพัฒนาซอฟต์แวร์ที่พร้อมใช้งานได้จริงในอุตสาหกรรมดิจิทัล">
+  <meta name="robots" content="index, follow">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Software Engineering BUU">
+  <meta property="og:description" content="หลักสูตรวิศวกรรมซอฟต์แวร์ที่เน้นทักษะจริงในอุตสาหกรรมดิจิทัล">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./images/byese12.jpg">
+
+  <link rel="icon" type="image/jpeg" href="./logo-se.jpg">
+  <!-- Critical CSS first (render-blocking but tiny) -->
   <link rel="stylesheet" href="./style.min.css">
+
+  <!-- Preload LCP hero image -->
+  <link rel="preload" as="image" href="./images/byese12.jpg" fetchpriority="high">
+
+  <!-- Google Fonts: non-blocking pattern -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Montserrat:wght@700;800&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&family=Montserrat:wght@700;800&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&family=Montserrat:wght@700;800&display=swap"></noscript>
+
+  <!-- Font Awesome: fully deferred, non-blocking -->
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  </noscript>
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <style>
     body {
-      font-family: 'Sarabun', sans-serif;
+      font-family: 'Sarabun', system-ui, -apple-system, sans-serif;
       scroll-behavior: smooth;
     }
 
     .font-montserrat {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Montserrat', system-ui, sans-serif;
     }
 
     .glass {
@@ -652,7 +666,10 @@
         <div class="relative bg-slate-900 p-2 rounded-3xl shadow-2xl border border-white/10 w-full max-w-[720px]">
           <div class="relative overflow-hidden rounded-2xl group">
             <img id="hero-carousel-image" src="images/byese12.jpg"
-              alt="Hero activity" class="w-full h-[260px] sm:h-[320px] md:h-[380px] object-cover opacity-90 transition duration-300">
+              alt="กิจกรรมการเรียนผลิตภัณฑ์และบรรยากาศหลักสูตรวิศวกรรมซอฟต์แวร์ มหาวิทยาลัยบูรพา"
+              width="720" height="380"
+              class="w-full h-[260px] sm:h-[320px] md:h-[380px] object-cover opacity-90 transition duration-300"
+              loading="eager" fetchpriority="high">
 
             <button id="hero-carousel-prev" type="button"
               class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 text-white hover:bg-black/70 transition opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
@@ -703,9 +720,9 @@
   <section id="partners" class="py-20 bg-white border-t border-slate-100">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-10 px-4">
-        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest reveal">
+        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest reveal">
           เครือข่ายองค์กรพันธมิตรและสถานประกอบการ (CWIE Partners)
-        </h3>
+        </p>
       </div>
       <div class="partners-marquee reveal reveal-delay-200" aria-label="CWIE Partners logos scrolling list">
         <div id="partners-grid" class="partners-track">
@@ -786,9 +803,7 @@
     <div class="max-w-5xl mx-auto px-4">
       <div class="text-center mb-20 px-4">
         <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight reveal leading-tight">สงสัยไหม...
-          <br />
-          <br />
-          <span class="text-red-600">ตลอด 4 ปีที่ SE</span> เรียนอะไรบ้าง?</h2>
+          <br /><br /><span class="text-red-600">ตลอด 4 ปีที่ SE</span> เรียนอะไรบ้าง?</h2>
         <p class="text-slate-500 mt-6 text-xl reveal reveal-delay-100 font-medium">Roadmap
           การเรียนรู้ที่จะเปลี่ยนคุณให้เป็น Software Engineer ตัวจริง</p>
       </div>
