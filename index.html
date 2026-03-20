@@ -611,17 +611,39 @@
 
       </div>
 
-      <!-- Mobile Navigation -->
-      <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 right-0 px-2 sm:px-6 lg:px-8 pt-2">
-        <div
-          class="bg-white rounded-2xl border border-slate-200 shadow-lg p-4 flex flex-col gap-2 font-bold text-sm uppercase tracking-wide">
-          <a href="#facebook-posts" class="hover:text-red-600 transition py-2">ข่าวสาร</a>
-          <a href="#admission" class="hover:text-red-600 transition py-2">การรับสมัคร</a>
-          <a href="#timeline" class="hover:text-red-600 transition py-2">Timeline</a>
-          <a href="#future-work" class="hover:text-red-600 transition py-2">งานที่ทำได้ในอนาคต</a>
-          <a href="#faq" class="hover:text-red-600 transition py-2">FAQ</a>
-          <a href="#portal" class="hover:text-red-600 transition text-red-600 py-2">ระบบสารสนเทศ</a>
-        </div>
+      <!-- Mobile Navigation (fixed overlay — does NOT push content) -->
+      <div id="mobile-menu"
+        class="lg:hidden fixed inset-x-0 top-20 z-40 bg-white shadow-2xl border-t border-slate-100"
+        style="transform: translateY(-110%); transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); visibility: hidden;"
+        aria-hidden="true">
+
+        <!-- Links -->
+        <nav class="px-4 py-3 divide-y divide-slate-100">
+          <a href="#facebook-posts" class="mobile-nav-link flex items-center gap-4 px-3 py-4 rounded-xl hover:bg-red-50 hover:text-red-600 transition-colors font-bold text-slate-700 uppercase tracking-wide text-sm">
+            <span class="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 shrink-0"><i class="fa-solid fa-newspaper"></i></span>
+            ข่าวสาร
+          </a>
+          <a href="#admission" class="mobile-nav-link flex items-center gap-4 px-3 py-4 rounded-xl hover:bg-red-50 hover:text-red-600 transition-colors font-bold text-slate-700 uppercase tracking-wide text-sm">
+            <span class="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 shrink-0"><i class="fa-solid fa-file-signature"></i></span>
+            การรับสมัคร
+          </a>
+          <a href="#timeline" class="mobile-nav-link flex items-center gap-4 px-3 py-4 rounded-xl hover:bg-red-50 hover:text-red-600 transition-colors font-bold text-slate-700 uppercase tracking-wide text-sm">
+            <span class="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 shrink-0"><i class="fa-solid fa-timeline"></i></span>
+            Timeline
+          </a>
+          <a href="#future-work" class="mobile-nav-link flex items-center gap-4 px-3 py-4 rounded-xl hover:bg-red-50 hover:text-red-600 transition-colors font-bold text-slate-700 uppercase tracking-wide text-sm">
+            <span class="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 shrink-0"><i class="fa-solid fa-briefcase"></i></span>
+            งานในอนาคต
+          </a>
+          <a href="#faq" class="mobile-nav-link flex items-center gap-4 px-3 py-4 rounded-xl hover:bg-red-50 hover:text-red-600 transition-colors font-bold text-slate-700 uppercase tracking-wide text-sm">
+            <span class="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 shrink-0"><i class="fa-solid fa-circle-question"></i></span>
+            FAQ
+          </a>
+          <a href="#portal" class="mobile-nav-link flex items-center gap-4 px-3 py-4 rounded-xl bg-red-50 text-red-600 font-bold uppercase tracking-wide text-sm">
+            <span class="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center text-red-500 shrink-0"><i class="fa-solid fa-door-open"></i></span>
+            ระบบสารสนเทศ
+          </a>
+        </nav>
       </div>
     </div>
   </nav>
@@ -1851,26 +1873,35 @@
 
       if (mobileMenuButton && mobileMenu) {
         const icon = mobileMenuButton.querySelector('i');
+        let isOpen = false;
 
-        mobileMenuButton.addEventListener('click', () => {
-          const isHidden = mobileMenu.classList.toggle('hidden');
-          mobileMenuButton.setAttribute('aria-expanded', String(!isHidden));
-
-          if (icon) {
-            icon.classList.toggle('fa-bars', isHidden);
-            icon.classList.toggle('fa-xmark', !isHidden);
-          }
-        });
-
-        mobileMenu.querySelectorAll('a[href^="#"]').forEach((link) => {
-          link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenuButton.setAttribute('aria-expanded', 'false');
-            if (icon) {
-              icon.classList.add('fa-bars');
-              icon.classList.remove('fa-xmark');
-            }
+        const openMenu = () => {
+          isOpen = true;
+          mobileMenu.style.visibility = 'visible';
+          requestAnimationFrame(() => {
+            mobileMenu.style.transform = 'translateY(0)';
           });
+          mobileMenu.setAttribute('aria-hidden', 'false');
+          mobileMenuButton.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+          if (icon) { icon.classList.replace('fa-bars', 'fa-xmark'); }
+        };
+
+        const closeMenu = () => {
+          isOpen = false;
+          mobileMenu.style.transform = 'translateY(-105%)';
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+          if (icon) { icon.classList.replace('fa-xmark', 'fa-bars'); }
+          // hide from tab order after animation completes
+          setTimeout(() => { if (!isOpen) mobileMenu.style.visibility = 'hidden'; }, 380);
+        };
+
+        mobileMenuButton.addEventListener('click', () => isOpen ? closeMenu() : openMenu());
+
+        mobileMenu.querySelectorAll('.mobile-nav-link').forEach((link) => {
+          link.addEventListener('click', closeMenu);
         });
       }
 
