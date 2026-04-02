@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
+# Keep public landing page crawlable for search engines and AI agents.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://se.informatics.buu.ac.th/sitemap.xml

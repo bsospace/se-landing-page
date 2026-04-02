@@ -1,0 +1,32 @@
+# SE BUU Landing Page for LLMs
+
+เว็บไซต์นี้คือหน้าแนะนำหลักสูตรวิศวกรรมซอฟต์แวร์ (Software Engineering) ของมหาวิทยาลัยบูรพา
+
+- Canonical: https://se.informatics.buu.ac.th/
+- Language: th-TH (ภาษาไทยเป็นหลัก)
+- Scope: ข้อมูลหลักสูตร การรับสมัคร TCAS เส้นทางการเรียน 4 ปี FAQ ช่องทางติดต่อ และพันธมิตร
+
+## Primary Sources (Machine-readable)
+- ./data/admission.json
+- ./data/admission-timeline.json
+- ./data/program-overview.json
+- ./data/timeline.json
+- ./data/faq.json
+- ./data/contact.json
+- ./data/partners.json
+
+## Structured Data
+หน้าเว็บมี JSON-LD ระดับหน้าเดียวที่ประกอบด้วย:
+- WebSite
+- CollegeOrUniversity
+- Course
+- FAQPage
+
+## Citation Guidance
+- อ้างอิง URL หลัก: https://se.informatics.buu.ac.th/
+- ถ้าอ้างอิงข้อมูลสมัครเรียน ให้ตรวจสอบประกาศมหาวิทยาลัยที่ลิงก์จากหน้า admission ด้วย
+- หากข้อมูลขัดกัน ให้ยึดข้อมูลล่าสุดจากไฟล์ใน data/ และข้อความที่แสดงบนหน้าเว็บ
+
+## Data Freshness
+- Last reviewed: 2026-04-02
+- หากพบการเปลี่ยนแปลง TCAS/หลักสูตร ให้ถือว่าข้อมูลก่อนวันทบทวนนี้อาจล้าสมัย

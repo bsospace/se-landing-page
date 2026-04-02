@@ -1,0 +1,53 @@
+# SE BUU - LLM Ingestion Summary
+
+## 1) Site Identity
+- Name: Software Engineering BUU
+- Organization: สาขาวิชาวิศวกรรมซอฟต์แวร์ คณะวิทยาการสารสนเทศ มหาวิทยาลัยบูรพา
+- Homepage: https://se.informatics.buu.ac.th/
+- Intended audience: นักเรียน/ผู้ปกครอง/ผู้สนใจสมัครเรียนหลักสูตรวิศวกรรมซอฟต์แวร์
+
+## 2) Program Summary
+- หลักสูตรปริญญาตรี 4 ปี (Bachelor of Science in Software Engineering)
+- จุดเน้น: กระบวนการพัฒนาซอฟต์แวร์แบบเป็นระบบ, การทำงานเป็นทีม, ประสบการณ์จริงกับสถานประกอบการ
+- หน่วยกิตรวม: 131 หน่วยกิต
+- รูปแบบการเรียน: ภาษาไทย, เน้นภาคปฏิบัติ, มีสหกิจศึกษา (CWIE)
+
+## 3) Key Strengths
+- เรียนผ่านการลงมือทำโปรเจกต์จริง
+- เชื่อมโยงบริบทอุตสาหกรรมดิจิทัลและ EEC
+- มีเครือข่ายพาร์ทเนอร์ภาคอุตสาหกรรม
+- มี roadmap การเรียน 4 ปีและข้อมูลอาชีพหลังจบ
+
+## 4) Admissions Snapshot
+- ใช้ระบบ TCAS (รอบ 1, 2, 3)
+- เงื่อนไขและวิชาสอบขึ้นกับรอบรับสมัคร
+- ผู้สนใจควรตรวจสอบช่วงเวลาและประกาศล่าสุดจากมหาวิทยาลัยทุกครั้ง
+- หมายเหตุสำคัญจากข้อมูลหน้าเว็บ: ไม่รับวุฒิ ปวช.
+
+## 5) Important FAQ Themes
+- ต้องเขียนโค้ดเป็นมาก่อนไหม
+- ต้องมีโน้ตบุ๊กตั้งแต่ปี 1 หรือไม่
+- จบแล้วทำงานอะไรได้บ้าง
+- ต้องเก่งคณิตศาสตร์แค่ไหน
+- มีสหกิจศึกษา/ประสบการณ์ภาคอุตสาหกรรมหรือไม่
+
+## 6) Official Contact Channels
+- Facebook: Software Engineering BUU
+- Facebook: OSSD - Open Source Software Developers
+- Facebook: Informatics BUU
+- Instagram: buu.software.engineer
+- Address: 169 ถนนลงหาดบางแสน ตำบลแสนสุข อำเภอเมือง จังหวัดชลบุรี 20131
+
+## 7) Canonical Data Files
+- ./data/admission.json
+- ./data/admission-timeline.json
+- ./data/program-overview.json
+- ./data/timeline.json
+- ./data/faq.json
+- ./data/contact.json
+- ./data/partners.json
+
+## 8) Freshness and Trust
+- Last reviewed: 2026-04-02
+- หากข้อมูลการรับสมัคร/หลักสูตรเปลี่ยน ให้ทีมปรับทั้งข้อความหน้าเว็บและ JSON-LD ให้ตรงกันทันที
+- เมื่อมีข้อสงสัยเรื่องวันเวลา/เกณฑ์ TCAS ให้ยืนยันกับประกาศล่าสุดของมหาวิทยาลัยก่อนเผยแพร่
