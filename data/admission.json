@@ -1,48 +1,345 @@
 {
+  "lastUpdated": "2026-04-02",
+  "programAdmissionInfo": {
+    "programNameThai": "หลักสูตรวิทยาศาสตรบัณฑิต (วท.บ.) สาขาวิชาวิศวกรรมซอฟต์แวร์ ภาคปกติ",
+    "programNameEnglish": "Bachelor of Science Program in Software Engineering",
+    "programType": "ภาษาไทย ปกติ",
+    "campus": "หลัก"
+  },
+  "roundIntakeSummary": [
+    {
+      "round": "TCAS 1",
+      "title": "Portfolio",
+      "seats": 45,
+      "note": "รับ 45 คน"
+    },
+    {
+      "round": "TCAS 2",
+      "title": "Quota",
+      "seats": 25,
+      "note": "รับ 25 คน"
+    },
+    {
+      "round": "TCAS 3",
+      "title": "Admission",
+      "seats": 10,
+      "note": "รับ 10 คน"
+    }
+  ],
   "rounds": [
     {
-      "round": "รอบ 1",
+      "round": "TCAS 1",
       "title": "Portfolio",
-      "description": "เน้นผลงานด้าน IT, การแข่งขัน หรือเกรดเฉลี่ยที่โดดเด่น",
-      "period": "ช่วงเวลา: มหาวิทยาลัยกำหนด (อ้างอิง MyTCAS รอบ Portfolio)",
-      "active": false,
+      "description": "รับ 45 คน โดยพิจารณาคุณสมบัติและแฟ้มสะสมผลงานตามโครงการย่อยของรอบ Portfolio",
+      "detail": "สาขาวิชาวิศวกรรมซอฟต์แวร์ ภาคปกติ รอบ Portfolio เปิดรับรวม 45 คน ผ่านหลายโครงการย่อย เช่น MOU, โควตาพิเศษ, PRE BUU, วมว., เพชรตะวันออก และผู้มีความสามารถพิเศษทั่วประเทศ",
+      "period": "ช่วงเวลา: ตามประกาศรับสมัครรอบ Portfolio ของมหาวิทยาลัย",
       "status": "closed",
-      "statusLabel": "ปิดรับสมัคร"
+      "statusLabel": "ปิดรับสมัคร",
+      "active": false,
+      "seats": 45,
+      "minGpax": 2.75,
+      "creditRequirements": {
+        "science": 18,
+        "math": 10,
+        "english": 7
+      },
+      "examSubjects": [],
+      "roundSpecificRequirements": [
+        "รับผู้สมัครที่จบจากโรงเรียนหลักสูตรแกนกลาง",
+        "ไม่รับหลักสูตรนานาชาติ/อาชีวะ/กศน./GED",
+        "ต้องผ่านเกณฑ์ GPAX และหน่วยกิตขั้นต่ำตามที่กำหนด",
+        "บางโครงการกำหนดให้ต้องสำเร็จการศึกษาปีปัจจุบันเท่านั้น",
+        "บางโครงการมีเงื่อนไขพิเศษ เช่น ไม่เป็นผู้มีตาบอดสี"
+      ],
+      "subProjects": [
+        {
+          "name": "โครงการรับบุคคลเข้าศึกษาตามข้อตกลงความร่วมมือ (MOU)",
+          "seats": 10,
+          "minGpax": 2.75,
+          "creditRequirements": {
+            "science": 18,
+            "math": 10,
+            "english": 7
+          },
+          "requireCurrentYearGraduate": true,
+          "acceptedCurriculum": [
+            "หลักสูตรแกนกลาง"
+          ],
+          "notAcceptedCurriculum": [
+            "หลักสูตรนานาชาติ",
+            "หลักสูตรอาชีวะ",
+            "หลักสูตรตามอัธยาศัย (กศน.)",
+            "GED"
+          ],
+          "scoreCalculation": [],
+          "condition": "รับผู้กำลังศึกษาระดับชั้นมัธยมศึกษาปีที่ 6",
+          "detailsUrl": "https://regservice.buu.ac.th/"
+        },
+        {
+          "name": "โครงการโควตาพิเศษโรงเรียนสาธิตพิบูลบำเพ็ญ",
+          "seats": 10,
+          "minGpax": 2.75,
+          "creditRequirements": {
+            "science": 18,
+            "math": 10,
+            "english": 7
+          },
+          "requireCurrentYearGraduate": true,
+          "acceptedCurriculum": [
+            "หลักสูตรแกนกลาง"
+          ],
+          "notAcceptedCurriculum": [
+            "หลักสูตรนานาชาติ",
+            "หลักสูตรอาชีวะ",
+            "หลักสูตรตามอัธยาศัย (กศน.)",
+            "GED"
+          ],
+          "scoreCalculation": [
+            {
+              "component": "คะแนนสอบสัมภาษณ์",
+              "weight": "100%"
+            }
+          ],
+          "condition": "รับผู้กำลังศึกษาระดับชั้นมัธยมศึกษาปีที่ 6",
+          "detailsUrl": "https://regservice.buu.ac.th/"
+        },
+        {
+          "name": "โครงการ PRE BUU",
+          "seats": 5,
+          "minGpax": 2.75,
+          "creditRequirements": {
+            "science": 18,
+            "math": 10,
+            "english": 7
+          },
+          "acceptedCurriculum": [
+            "หลักสูตรแกนกลาง"
+          ],
+          "notAcceptedCurriculum": [
+            "หลักสูตรนานาชาติ",
+            "หลักสูตรอาชีวะ",
+            "หลักสูตรตามอัธยาศัย (กศน.)",
+            "GED"
+          ],
+          "scoreCalculation": [
+            {
+              "component": "คะแนนแฟ้มสะสมผลงาน",
+              "weight": "50%"
+            },
+            {
+              "component": "คะแนนสอบสัมภาษณ์",
+              "weight": "50%"
+            }
+          ],
+          "condition": "รับผู้กำลังศึกษาระดับชั้นมัธยมศึกษาปีที่ 6",
+          "detailsUrl": "https://regservice.buu.ac.th/"
+        },
+        {
+          "name": "โครงการ วมว.",
+          "seats": 5,
+          "minGpax": 3,
+          "creditRequirements": {
+            "science": 18,
+            "math": 10,
+            "english": 7
+          },
+          "requireCurrentYearGraduate": true,
+          "acceptedCurriculum": [
+            "หลักสูตรแกนกลาง"
+          ],
+          "notAcceptedCurriculum": [
+            "หลักสูตรนานาชาติ",
+            "หลักสูตรอาชีวะ",
+            "หลักสูตรตามอัธยาศัย (กศน.)",
+            "GED"
+          ],
+          "scoreCalculation": [],
+          "condition": "รับผู้กำลังศึกษาระดับชั้นมัธยมศึกษาปีที่ 6",
+          "detailsUrl": "https://regservice.buu.ac.th/"
+        },
+        {
+          "name": "โครงการเพชรตะวันออก",
+          "seats": 5,
+          "minGpax": 3,
+          "creditRequirements": {
+            "science": 18,
+            "math": 10,
+            "english": 7
+          },
+          "requireCurrentYearGraduate": true,
+          "acceptedCurriculum": [
+            "หลักสูตรแกนกลาง"
+          ],
+          "notAcceptedCurriculum": [
+            "หลักสูตรนานาชาติ",
+            "หลักสูตรอาชีวะ",
+            "หลักสูตรตามอัธยาศัย (กศน.)",
+            "GED"
+          ],
+          "scoreCalculation": [],
+          "condition": "รับผู้กำลังศึกษาระดับชั้นมัธยมศึกษาปีที่ 6 และไม่เป็นผู้มีตาบอดสี",
+          "detailsUrl": "https://regservice.buu.ac.th/"
+        },
+        {
+          "name": "โครงการนักเรียนที่มีความสามารถพิเศษทั่วประเทศ",
+          "seats": 10,
+          "minGpax": 2.75,
+          "creditRequirements": {
+            "science": 18,
+            "math": 10,
+            "english": 7
+          },
+          "requireCurrentYearGraduate": true,
+          "acceptedCurriculum": [
+            "หลักสูตรแกนกลาง"
+          ],
+          "notAcceptedCurriculum": [
+            "หลักสูตรนานาชาติ",
+            "หลักสูตรอาชีวะ",
+            "หลักสูตรตามอัธยาศัย (กศน.)",
+            "GED"
+          ],
+          "scoreCalculation": [
+            {
+              "component": "คะแนนแฟ้มสะสมผลงาน",
+              "weight": "50%"
+            },
+            {
+              "component": "คะแนนสอบสัมภาษณ์",
+              "weight": "50%"
+            }
+          ],
+          "condition": "รับผู้กำลังศึกษาระดับชั้นมัธยมศึกษาปีที่ 6",
+          "detailsUrl": "https://regservice.buu.ac.th/"
+        }
+      ]
     },
     {
-      "round": "รอบ 2",
+      "round": "TCAS 2",
       "title": "Quota",
-      "description": "โควตาพื้นที่ภาคตะวันออกและโรงเรียนเครือข่าย",
-      "period": "ช่วงเวลา: มหาวิทยาลัยกำหนด (อ้างอิง MyTCAS รอบ Quota)",
-      "active": false,
+      "description": "รับ 25 คน ผ่านโครงการรับตรงในภาคตะวันออก 12 จังหวัด",
+      "detail": "รอบ Quota กำหนดเกณฑ์ GPAX และหน่วยกิตขั้นต่ำ พร้อมคะแนนขั้นต่ำ TGAT, TPAT3 และ A-Level คณิตศาสตร์ประยุกต์ 1",
+      "period": "ช่วงเวลา: ตามประกาศรับสมัครรอบ Quota ของมหาวิทยาลัย",
       "status": "closed",
-      "statusLabel": "ปิดรับสมัคร"
+      "statusLabel": "ปิดรับสมัคร",
+      "active": false,
+      "seats": 25,
+      "minGpax": 2.5,
+      "creditRequirements": {
+        "science": 18,
+        "math": 10,
+        "english": 7
+      },
+      "examSubjects": [
+        "TGAT (ขั้นต่ำ 30)",
+        "TPAT3 (ขั้นต่ำ 20)",
+        "A-Level คณิตศาสตร์ประยุกต์ 1 (ขั้นต่ำ 5)"
+      ],
+      "roundSpecificRequirements": [
+        "รับผู้สมัครที่จบจากโรงเรียนหลักสูตรแกนกลาง",
+        "ไม่รับหลักสูตรนานาชาติ/อาชีวะ/กศน./GED",
+        "ต้องสำเร็จการศึกษาปีปัจจุบันเท่านั้น",
+        "รับผู้กำลังศึกษาระดับชั้นมัธยมศึกษาปีที่ 6"
+      ],
+      "subProjects": [
+        {
+          "name": "โครงการรับตรงในภาคตะวันออก 12 จังหวัด",
+          "seats": 25,
+          "minGpax": 2.5,
+          "creditRequirements": {
+            "science": 18,
+            "math": 10,
+            "english": 7
+          },
+          "minimumScores": {
+            "TGAT": 30,
+            "TPAT3": 20,
+            "A-Level Math 61": 5
+          },
+          "requireCurrentYearGraduate": true,
+          "condition": "รับผู้กำลังศึกษาระดับชั้นมัธยมศึกษาปีที่ 6",
+          "detailsUrl": "https://regservice.buu.ac.th/"
+        }
+      ]
     },
     {
-      "round": "รอบ 3",
+      "round": "TCAS 3",
       "title": "Admission",
-      "description": "ใช้คะแนนสอบส่วนกลาง TGAT/TPAT และ A-Level",
+      "description": "รับ 10 คน โดยใช้คะแนนกลางและสูตรคำนวณคะแนนตามเกณฑ์ Admission",
+      "detail": "รับผู้สำเร็จการศึกษามัธยมศึกษาปีที่ 6 โดยพิจารณา GPAX, TGAT, TPAT3 และ A-Level คณิตศาสตร์ประยุกต์ 1 ตามน้ำหนักที่กำหนด",
       "period": "ช่วงเวลา: ระบบ mytcas.com 6-12 พ.ค. 69",
       "registrationStart": "2026-05-06",
       "registrationEnd": "2026-05-12",
+      "status": "upcoming",
+      "statusLabel": "ยังไม่ถึงวันเปิดรับสมัคร",
       "active": true,
-      "status": "open",
-      "statusLabel": "เปิดรับสมัครอยู่"
-    },
-    {
-      "round": "รอบ 4",
-      "title": "Direct",
-      "description": "การรับสมัครตรงในรอบเก็บตก (ถ้ามี)",
-      "period": "ช่วงเวลา: ระบบมหาวิทยาลัย 28 พ.ค. - 14 มิ.ย. 69",
-      "registrationStart": "2026-05-28",
-      "registrationEnd": "2026-06-14",
-      "active": true,
-      "status": "closed",
-      "statusLabel": "ปิดรับสมัคร"
+      "seats": 10,
+      "minGpax": 2.5,
+      "creditRequirements": {
+        "science": 22,
+        "math": 12,
+        "english": 9
+      },
+      "examSubjects": [
+        "TGAT (ขั้นต่ำ 30)",
+        "TPAT3 (ขั้นต่ำ 20)",
+        "A-Level คณิตศาสตร์ประยุกต์ 1 (ขั้นต่ำ 5)"
+      ],
+      "roundSpecificRequirements": [
+        "รับผู้สมัครที่จบจากโรงเรียนหลักสูตรแกนกลาง",
+        "ไม่รับหลักสูตรนานาชาติ/อาชีวะ/กศน./GED",
+        "รับผู้สำเร็จการศึกษาระดับชั้นมัธยมศึกษาปีที่ 6"
+      ],
+      "scoreCalculation": [
+        {
+          "component": "เกรดเฉลี่ย (GPAX)",
+          "weight": "10%"
+        },
+        {
+          "component": "ความถนัดทั่วไป (TGAT)",
+          "weight": "50%"
+        },
+        {
+          "component": "ความถนัดวิทยาศาสตร์ เทคโนโลยี วิศวกรรมศาสตร์ (TPAT3)",
+          "weight": "30%"
+        },
+        {
+          "component": "A-Level คณิตศาสตร์ประยุกต์ 1 (พื้นฐาน+เพิ่มเติม)",
+          "weight": "10%"
+        }
+      ],
+      "historicalTcas68": {
+        "project": "Admission",
+        "scores": [
+          {
+            "processing": "ประมวลผลครั้งที่ 1",
+            "min": 52.9273,
+            "max": 62.7718
+          },
+          {
+            "processing": "ประมวลผลครั้งที่ 2",
+            "min": 52.5384,
+            "max": 62.7718
+          }
+        ],
+        "intake": 35
+      },
+      "detailsUrl": "https://regservice.buu.ac.th/"
     }
   ],
-  "viewMore": {
-    "label": "ดูข้อมูลการรับสมัครเพิ่มเติม",
-    "url": "https://www.informatics.buu.ac.th/2020/?page_id=181"
+  "commonQualifications": [
+    "รับผู้สมัครที่จบจากโรงเรียนหลักสูตรแกนกลาง",
+    "ไม่รับผู้สมัครที่จบจากหลักสูตรนานาชาติ",
+    "ไม่รับผู้สมัครที่จบจากหลักสูตรอาชีวะ",
+    "ไม่รับผู้สมัครที่จบจากหลักสูตรตามอัธยาศัย (กศน.)",
+    "ไม่รับผู้สมัครที่จบหลักสูตร GED"
+  ],
+  "primaryCta": {
+    "label": "รายละเอียดเพิ่มเติม (Reg Service)",
+    "url": "https://regservice.buu.ac.th/"
+  },
+  "secondaryCta": {
+    "label": "เข้าสู่ระบบ myTCAS",
+    "url": "https://www.mytcas.com/"
   }
 }

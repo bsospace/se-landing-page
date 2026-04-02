@@ -1,3 +1,109 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.ui-interactive {
+		@apply transition-all duration-base ease-standard;
+	}
+
+	.ui-nav-link {
+		@apply font-bold text-sm uppercase tracking-wide text-slate-700 transition-all duration-base ease-standard hover:text-red-600;
+	}
+
+	.ui-nav-item {
+		@apply flex items-center gap-4 px-3 py-4 rounded-md font-bold text-slate-700 uppercase tracking-wide text-sm transition-all duration-base ease-standard hover:bg-red-50 hover:text-red-600;
+	}
+
+	.ui-pill {
+		@apply rounded-full px-4 py-1.5 font-bold text-sm transition-all duration-base ease-standard;
+	}
+
+	.ui-pill-hero {
+		@apply bg-white/15 hover:bg-white/25 text-white;
+	}
+
+	.ui-btn {
+		@apply inline-flex items-center justify-center rounded-md font-bold transition-all duration-base ease-standard;
+	}
+
+	.ui-btn-lg {
+		@apply px-8 py-4 text-lg;
+	}
+
+	.ui-btn-md {
+		@apply px-6 py-3 text-sm;
+	}
+
+	.ui-btn-sm {
+		@apply px-4 py-2 text-sm;
+	}
+
+	.ui-btn-primary {
+		@apply bg-red-600 hover:bg-red-500 text-white shadow-lg shadow-red-900/20;
+	}
+
+	.ui-btn-light {
+		@apply bg-white text-red-700 hover:bg-red-50 shadow-lg shadow-red-900/20;
+	}
+
+	.ui-btn-outline {
+		@apply bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 shadow-card;
+	}
+
+	.ui-btn-muted {
+		@apply bg-slate-100 hover:bg-slate-200 text-slate-700;
+	}
+
+	.ui-btn-dark {
+		@apply bg-slate-900 text-white hover:bg-slate-800;
+	}
+
+	.ui-icon-btn {
+		@apply inline-flex items-center justify-center rounded-full transition-all duration-base ease-standard;
+	}
+
+	.ui-icon-btn-md {
+		@apply w-10 h-10;
+	}
+
+	.ui-icon-btn-lg {
+		@apply w-11 h-11;
+	}
+
+	.ui-icon-btn-overlay {
+		@apply bg-black/60 text-white hover:bg-black/80;
+	}
+
+	.ui-icon-btn-muted {
+		@apply bg-slate-100 text-slate-500 hover:bg-red-50 hover:text-red-500;
+	}
+
+	.ui-icon-btn-ghost {
+		@apply text-slate-700 hover:text-red-600;
+	}
+
+	.ui-card {
+		@apply bg-white border border-slate-200 rounded-xl p-6 md:p-8 shadow-card;
+	}
+
+	.ui-card-compact {
+		@apply bg-white border border-slate-200 rounded-lg p-4 shadow-card;
+	}
+
+	.ui-card-elevated {
+		@apply bg-white border border-slate-200 rounded-xl p-6 md:p-8 shadow-card transition-all duration-base ease-standard hover:-translate-y-1 hover:shadow-card-hover;
+	}
+
+	.ui-card-dark {
+		@apply bg-white/5 border border-white/10 backdrop-blur-md rounded-xl p-8 transition-all duration-base ease-standard hover:bg-white/10;
+	}
+
+	.ui-grid-main {
+		@apply grid gap-8;
+	}
+
+	.ui-grid-compact {
+		@apply grid gap-6;
+	}
+}

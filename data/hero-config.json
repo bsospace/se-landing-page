@@ -1,0 +1,33 @@
+{
+  "badgeText": "บัณฑิตพันธุ์ใหม่เพื่ออุตสาหกรรมดิจิทัล",
+  "titlePrefix": "Build the",
+  "titleHighlight": "Future",
+  "titleSuffix": "with Software",
+  "description": "หลักสูตรที่เน้นทักษะการสร้างซอฟต์แวร์ที่ใช้งานได้จริงในอุตสาหกรรม มุ่งเน้นกระบวนการพัฒนาที่มีประสิทธิภาพ และการฝึกประสบการณ์วิชาชีพในเขตเศรษฐกิจพิเศษ EEC",
+  "primaryCta": {
+    "label": "ดูขั้นตอนสมัครเรียน",
+    "href": "#admission"
+  },
+  "secondaryCta": {
+    "label": "สำหรับนิสิต",
+    "href": "#portal"
+  },
+  "quickLinks": [
+    {
+      "label": "เรียนอะไร",
+      "href": "#program-overview"
+    },
+    {
+      "label": "สมัครอย่างไร",
+      "href": "#admission"
+    },
+    {
+      "label": "จบแล้วทำงานอะไร",
+      "href": "#future-work"
+    },
+    {
+      "label": "ช่องทางติดต่อ",
+      "href": "#contact-official"
+    }
+  ]
+}
